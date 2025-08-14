@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>io.github.xuse</groupId>
+    <artifactId>romking</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>simple-context</artifactId>
+  <name>simple-context</name>
+  <properties>
+  </properties>
+  <dependencies>
+   <dependency>
+		<groupId>io.github.xuse</groupId>
+		<artifactId>querydsl-sql-extension-datatype</artifactId>
+		<version>5.0.0-r140</version>
+	</dependency>
+  </dependencies>
+</project>

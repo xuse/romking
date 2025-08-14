@@ -1,0 +1,15 @@
+*.class
+target/
+.idea
+.svn
+.settings
+.project
+.classpath
+hs_err_pid*
+db
+*.log
+*.iml
+.lingma
+.vscode
+test.txt
+generated/
