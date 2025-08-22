@@ -16,6 +16,7 @@ import com.github.xuse.querydsl.spring.core.resource.Resource;
 import com.github.xuse.querydsl.util.Assert;
 import com.github.xuse.querydsl.util.ClassScanner;
 import com.github.xuse.querydsl.util.Exceptions;
+import com.github.xuse.querydsl.util.StringUtils;
 import com.github.xuse.querydsl.util.TypeUtils;
 
 import lombok.SneakyThrows;
@@ -64,19 +65,6 @@ public class ApplicationContext {
 		return new ContextBuilder();
 	}
 	
-	private static String uncapitalize(String str) {
-		if(str==null || str.length()==0) {
-			return str;
-		}
-		char c=str.charAt(0);
-		if(Character.isUpperCase(c)) {
-			char[] cs=str.toCharArray();
-			cs[0]=Character.toLowerCase(c);
-			return new String(cs); 
-		}
-		return str;
-	}
-	
 	public static class ContextBuilder{
 		private final Map<String,Object> nameContext=new HashMap<>();
 		private final Map<Class<?>,List<Object>> typeContext=new HashMap<>();
@@ -90,7 +78,7 @@ public class ApplicationContext {
 		}
 		
 		public ContextBuilder addBean(Object bean) {
-			String name=uncapitalize(bean.getClass().getSimpleName());
+			String name=StringUtils.uncapitalize(bean.getClass().getSimpleName());
 			return addBean(name,bean);
 		}
 		
@@ -121,6 +109,7 @@ public class ApplicationContext {
 						{
 							Inject annotation=field.getAnnotation(Inject.class);
 							if(annotation!=null) {
+								log.info("Injecting @Inject field:{}.{}",field.getDeclaringClass(),field.getName());
 								injectField(bean,field,annotation);
 							}	
 						}

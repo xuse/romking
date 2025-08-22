@@ -1,4 +1,4 @@
-package io.github.xuse.romaster.ui.manage;
+package io.github.xuse.romaster.ui.other;
 
 import static com.vaadin.flow.spring.data.VaadinSpringDataHelpers.toSpringPageRequest;
 
@@ -26,9 +26,9 @@ import jakarta.annotation.security.PermitAll;
 
 @Route("rom-list")
 @PageTitle("Roms List")
-@Menu(order = 0, icon = "vaadin:clipboard-check", title = "Task List")
+@Menu(order = 4, icon = "vaadin:toolbox", title = "Test List")
 @PermitAll // When security is enabled, allow all authenticated users
-public class RomReposView extends Main {
+public class TestReposView extends Main {
 
     private final RomService taskService;
 
@@ -37,7 +37,7 @@ public class RomReposView extends Main {
     final Button createBtn;
     final Grid<RomDir> taskGrid;
 
-    public RomReposView(RomService taskService, Clock clock) {
+    public TestReposView(RomService taskService, Clock clock) {
         this.taskService = taskService;
 
         description = new TextField();

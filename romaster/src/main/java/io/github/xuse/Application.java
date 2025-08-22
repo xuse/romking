@@ -29,6 +29,10 @@ public class Application implements AppShellConfigurator {
 		for(Map.Entry<String,Object> innerBeans:console.getContext().beans()) {
 			String name=innerBeans.getKey();
 			Object bean=innerBeans.getValue();
+			if(bean instanceof RomConsole) {
+				//Current @Bean will registe bean to Spring context. so there is no need to registe this bean.
+				continue;
+			}
 			@SuppressWarnings({ "unchecked", "rawtypes" })
 			BeanDefinitionBuilder bdb = BeanDefinitionBuilder.rootBeanDefinition((Class)bean.getClass(),()->bean);
 			beanFactory.registerBeanDefinition(name, bdb.getBeanDefinition());

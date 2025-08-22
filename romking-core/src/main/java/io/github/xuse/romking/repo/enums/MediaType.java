@@ -10,6 +10,8 @@ public enum MediaType implements CodeEnum<MediaType>{
 	 * 通过BAT引用的本体
 	 */
 	DOS_ROM(10),
+	DATABASE(97),
+	CONFIG(98),
 	OTHER(99)
 	
 	;

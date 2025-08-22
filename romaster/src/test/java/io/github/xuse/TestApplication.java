@@ -1,6 +1,7 @@
 package io.github.xuse;
 
 import org.springframework.boot.SpringApplication;
+import org.testcontainers.utility.TestcontainersConfiguration;
 
 /**
  * Run this application class to start your application locally, using Testcontainers for all external services. You
@@ -9,6 +10,6 @@ import org.springframework.boot.SpringApplication;
 public class TestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.from(Application::main).with(TestcontainersConfiguration.class).run(args);
+        SpringApplication.from(Application::main).run(args);
     }
 }

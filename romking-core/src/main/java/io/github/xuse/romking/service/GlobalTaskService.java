@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 import com.github.xuse.querydsl.datatype.util.Threads;
-import com.github.xuse.querydsl.lambda.LambdaTable;
 import com.github.xuse.querydsl.sql.SQLQueryFactory;
 import com.github.xuse.querydsl.util.DateUtils;
 
 import io.github.xuse.romking.repo.obj.GlobalTask;
+import io.github.xuse.romking.repo.obj.QGlobalTask;
 import io.github.xuse.romking.tasks.ProcessResult;
 import io.github.xuse.romking.tasks.Task;
 import io.github.xuse.romking.tasks.TaskType;
@@ -23,8 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GlobalTaskService {
 	
-	public static final LambdaTable<GlobalTask> table=()->GlobalTask.class;
-	
+	public static final QGlobalTask table=QGlobalTask.globalTask;
 	
 	@Inject
 	private SQLQueryFactory factory; 

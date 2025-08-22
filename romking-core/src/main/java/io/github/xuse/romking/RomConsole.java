@@ -22,7 +22,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import io.github.xuse.romking.metadata.ee.GameListService;
 import io.github.xuse.romking.metadata.ee.Gamelist;
 import io.github.xuse.romking.repo.obj.RomDir;
-import io.github.xuse.romking.service.RomRepoService;
+import io.github.xuse.romking.service.RomImportService;
 import io.github.xuse.simple.context.ApplicationContext;
 import io.github.xuse.simple.context.Inject;
 import lombok.Getter;
@@ -35,7 +35,7 @@ public class RomConsole {
 	private SQLQueryFactory factory;
 
 	@Inject
-	private RomRepoService repoService;
+	private RomImportService repoService;
 
 	@Inject
 	private GameListService gameListService;
@@ -66,7 +66,7 @@ public class RomConsole {
 		SQLQueryFactory db = getSqlFactory(datasource, datasource.getUrl());
 		this.factory=db;
 		this.context = ApplicationContext.builder()
-				.addBean("application", this)
+				.addBean("romConsole", this)
 				.addBean("datasource", datasource)
 				.addBean("factory", db)
 				.processResourceAnnotation(true)

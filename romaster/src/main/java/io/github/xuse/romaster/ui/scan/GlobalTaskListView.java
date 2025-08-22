@@ -5,6 +5,8 @@ import static com.vaadin.flow.spring.data.VaadinSpringDataHelpers.toSpringPageRe
 import java.time.Clock;
 import java.util.Optional;
 
+import javax.annotation.Resource;
+
 import com.github.xuse.querydsl.util.DateFormats;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -20,39 +22,28 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import io.github.xuse.base.ui.component.ViewToolbar;
+import io.github.xuse.framework.vaadin.support.VaadinHelper;
 import io.github.xuse.romaster.service.RomService;
 import io.github.xuse.romking.repo.obj.RomDir;
+import io.github.xuse.romking.service.GlobalTaskService;
 import jakarta.annotation.security.PermitAll;
 
 @Route("task-list")
 @PageTitle("Task List")
-@Menu(order = 0, icon = "vaadin:clipboard-check", title = "Task List")
+@Menu(order = 1, icon = "vaadin:clipboard-check", title = "Global Tasks")
 @PermitAll
-public class ScanTaskListView extends Main {
+public class GlobalTaskListView extends Main {
 
-    private final transient RomService taskService;
+	@Resource
+    private final transient GlobalTaskService taskService;
 
     final TextField description;
     final DatePicker dueDate;
     final Button createBtn;
     final Grid<RomDir> taskGrid;
 
-    public ScanTaskListView(RomService taskService, Clock clock) {
-        this.taskService = taskService;
-
-        description = new TextField();
-        description.setPlaceholder("What do you want to do?");
-        description.setAriaLabel("Task description");
-        description.setMaxLength(255);
-        description.setMinWidth("20em");
-
-        dueDate = new DatePicker();
-        dueDate.setPlaceholder("Due date");
-        dueDate.setAriaLabel("Due date");
-
-        createBtn = new Button("Create", event -> createTask());
-        createBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-
+    public GlobalTaskListView() {
+        
         taskGrid = new Grid<>();
         taskGrid.setItems(query -> taskService.list(toSpringPageRequest(query)).stream());
         taskGrid.addColumn(RomDir::getDescription).setHeader("Description");
@@ -66,7 +57,7 @@ public class ScanTaskListView extends Main {
         addClassNames(LumoUtility.BoxSizing.BORDER, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
                 LumoUtility.Padding.MEDIUM, LumoUtility.Gap.SMALL);
 
-        add(new ViewToolbar("Task List", ViewToolbar.group(description, dueDate, createBtn)));
+        add(VaadinHelper.viewToolbarBuilder(TaskForm.class).build(taskGrid));
         add(taskGrid);
     }
 

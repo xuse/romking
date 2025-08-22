@@ -8,12 +8,16 @@ import com.github.xuse.querydsl.annotation.dbdef.TableSpec;
 import com.github.xuse.querydsl.sql.ddl.ConstraintType;
 
 import io.github.xuse.romking.repo.enums.MediaType;
+import lombok.Data;
 
 @TableSpec(name="media_file",primaryKeys = "id",keys= {
-		@Key(type=ConstraintType.UNIQUE,path= {""})
+		@Key(type=ConstraintType.UNIQUE,path= {"dirId","filepath"})
 })
+@Data
 public class MediaFile {
-	
+	/**
+	 * 自增
+	 */
 	@ColumnSpec(nullable = false,type=Types.BIGINT,unsigned = true,autoIncrement = true)
 	private long id;
 	

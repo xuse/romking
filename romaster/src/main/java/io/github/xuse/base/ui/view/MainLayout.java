@@ -1,7 +1,5 @@
 package io.github.xuse.base.ui.view;
 
-import io.github.xuse.security.AppUserInfo;
-import io.github.xuse.security.CurrentUser;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -31,7 +29,8 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
-import static com.vaadin.flow.theme.lumo.LumoUtility.*;
+import io.github.xuse.security.AppUserInfo;
+import io.github.xuse.security.CurrentUser;
 
 @Layout
 @AnonymousAllowed // Allow all users, including anonymous ones. If you want only authenticated

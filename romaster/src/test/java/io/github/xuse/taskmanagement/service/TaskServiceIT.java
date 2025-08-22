@@ -7,16 +7,13 @@ import java.time.Clock;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.security.test.context.support.WithUserDetails;
 
-import io.github.xuse.TestcontainersConfiguration;
 import io.github.xuse.romaster.service.RomService;
-import io.github.xuse.romking.repo.dal.RomRepoRepository;
+import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.security.dev.SampleUsers;
 import jakarta.validation.ValidationException;
 
-@Import(TestcontainersConfiguration.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 class TaskServiceIT { // TODO Rename to TaskServiceTest to run it together with the unit tests.
 
@@ -24,7 +21,7 @@ class TaskServiceIT { // TODO Rename to TaskServiceTest to run it together with 
     RomService taskService;
 
     @Autowired
-    RomRepoRepository taskRepository;
+    RomDirRepository taskRepository;
 
     @Autowired
     Clock clock;

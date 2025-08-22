@@ -13,19 +13,19 @@ import com.github.xuse.querydsl.lambda.LambdaTable;
 
 import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
-import io.github.xuse.romking.repo.dal.RomRepoRepository;
+import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.obj.RomDir;
 
 @Service
 @PreAuthorize("isAuthenticated()")
 public class RomService {
 
-    private final RomRepoRepository dirRepository;
+    private final RomDirRepository dirRepository;
     private final RomFileRepository romRepository;
     private final Clock clock;
 
     RomService(RomConsole romConsole, Clock clock) {
-        this.dirRepository = romConsole.getBean(RomRepoRepository.class);
+        this.dirRepository = romConsole.getBean(RomDirRepository.class);
         this.romRepository = romConsole.getBean(RomFileRepository.class);
         this.clock = clock;
     }
