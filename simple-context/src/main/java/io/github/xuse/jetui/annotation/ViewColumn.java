@@ -8,7 +8,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import io.github.xuse.jetui.common.SearchOp;
-import io.github.xuse.jetui.convert.CommonMaskConverter;
 
 /**
  * 用于描述该模型在动态表单的界面上的视图显示效果
@@ -114,7 +113,7 @@ public @interface ViewColumn {
 	 * 某些时候。界面视图的列并不直接等同于数据库中的列。<br>
 	 * 而当界面排序或者搜索时，需要知道数据库中对应的列名。<br>
 	 * 默认当排序或搜索时，按照标注所在的列进行排序，某些时候不能确定数据库排序列的，可以在这里指定数据库列名。
-	 * @return
+	 * @return dbColumnName
 	 */
 	String dbColumnName() default "";
 	
@@ -124,7 +123,7 @@ public @interface ViewColumn {
 	 * 一个对象模型可以在不同的视图中显示，此时不同的场景具有不同的scenario属性，这里配置该项生效的scenario。默认的scenario名为default。要支持多个scenario可以如下配置
 	 * 比如 condition={"default","select"}
 	 * 
-	 * @return
+	 * @return scenario
 	 */
 	String[] scenario() default {};
 	

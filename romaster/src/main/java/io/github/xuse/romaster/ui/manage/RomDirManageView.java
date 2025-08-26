@@ -2,18 +2,15 @@ package io.github.xuse.romaster.ui.manage;
 
 
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.github.xuse.querydsl.util.DateFormats;
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.data.provider.CallbackDataProvider;
 import com.vaadin.flow.data.provider.DataProvider;
-import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import io.github.xuse.framework.vaadin.support.VaadinHelper;
@@ -33,25 +30,23 @@ public class RomDirManageView extends Main {
 	@Autowired
 	private RomDirRepository romRepos;
 	
-//    final TextField description;
-//    final DatePicker dueDate;
-//    final Button createBtn;
     final Grid<RomDir> taskGrid;
+    
+    
+    private void searchOnClick(ClickEvent<Button> event) {
+    	
+    }
 
     public RomDirManageView() {
+    	add(VaadinHelper.viewToolbarBuilder(RomDirFilter.class).button("查询",this::searchOnClick).build());
+    	
         taskGrid = new Grid<>();
-    	add(taskGrid);
-
     	addClassNames(LumoUtility.BoxSizing.BORDER, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
                 LumoUtility.Padding.MEDIUM, LumoUtility.Gap.SMALL);
         
         taskGrid.setDataProvider(this.createDataProvider());
     	VaadinHelper.addColumns(taskGrid,RomDir.class);
-    	VaadinHelper.viewToolbarBuilder(RomDirFilter.class)
-    	.build(taskGrid);
-
-
-        
+    	add(taskGrid);
     }
 
     private DataProvider<RomDir, RomDirFilter> createDataProvider() {

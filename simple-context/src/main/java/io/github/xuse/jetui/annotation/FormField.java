@@ -83,6 +83,10 @@ public @interface FormField {
 	 * @return 样式高度
 	 */
 	int height() default 0;
+	
+	String placeHolder() default "";
+	
+	
 
 	/**
 	 * 如果是combo/checkbox/radio，出现在选择中的选择项数据源<br/>

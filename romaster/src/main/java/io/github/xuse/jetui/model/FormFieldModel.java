@@ -1,7 +1,7 @@
 package io.github.xuse.jetui.model;
 
 import java.lang.reflect.AnnotatedElement;
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,29 +33,12 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 		SINGLE = new HashMap<String, String>();
 		SINGLE.put("true", "");
 	}
+	
+	public static FormFieldModel of(FormField annotation, Field field) {
+		return of(annotation,field.getName(),field);
+	}
 
-	public static FormFieldModel of(String name, AnnotatedElement element) {
-		FormField annotation = element.getAnnotation(FormField.class);
-		if (annotation == null) {
-			if (element instanceof Method) {
-				Method getter = (Method) element;
-				String methodName = getter.getName();
-				if (methodName.startsWith("get")) {
-					methodName = methodName.substring(3);
-				} else if (methodName.startsWith("is")) {
-					methodName = methodName.substring(2);
-				} else {
-					throw new IllegalArgumentException("There's no Annotation @FormField on " + element);
-				}
-				try {
-					Method setter = getter.getDeclaringClass().getMethod("set" + methodName, getter.getReturnType());
-					annotation = setter.getAnnotation(FormField.class);
-				} catch (NoSuchMethodException | SecurityException e) {
-					throw new IllegalArgumentException(
-							"There's no Annotation @FormField on " + element + " nor its setter.");
-				}
-			}
-		}
+	public static FormFieldModel of(FormField annotation, String name,AnnotatedElement element) {
 		if (annotation == null) {
 			throw new NullPointerException("There's no Annotation @FormField on " + element);
 		}
@@ -74,6 +57,7 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 		model.setRegexp(annotation.regexp());
 		model.setErrTip(annotation.errTip());
 		model.setHint(annotation.hint());
+		model.setPlaceHolder(annotation.placeHolder());
 		if (annotation.witdh() > 0) {
 			model.addStyle("width", annotation.witdh() + "px");
 		}
@@ -154,7 +138,7 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 	/**
 	 * 显示名
 	 */
-	private String name;
+	private String label;
 
 	/**
 	 * 默认值
@@ -185,6 +169,7 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 	 */
 	private String regexp;
 
+	private String placeHolder;
 	/**
 	 * 提示信息
 	 */
@@ -248,7 +233,7 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 
 	public FormFieldModel(String name, String text) {
 		this.code = name;
-		this.name = text;
+		this.label = text;
 
 	}
 
@@ -260,82 +245,11 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 		this.code = code;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public InputType getType() {
-		return type;
-	}
-
-	public void setType(InputType type) {
-		this.type = type;
-	}
-
-	public int getMaxLength() {
-		return maxLength;
-	}
-
-	public void setMaxLength(int maxLength) {
-		this.maxLength = maxLength;
-	}
-
-	public boolean isRequired() {
-		return required;
-	}
-
-	public void setRequired(boolean required) {
-		this.required = required;
-	}
-
-	public int getOrder() {
-		return order;
-	}
-
-	public void setOrder(int order) {
-		this.order = order;
-	}
-
 	@Override
 	public int compareTo(FormFieldModel o) {
 		return Integer.compare(this.order, o.order);
 	}
 
-	public String getRegexp() {
-		return regexp;
-	}
-
-	public void setRegexp(String regexp) {
-		this.regexp = regexp;
-	}
-
-	public String getErrTip() {
-		return errTip;
-	}
-
-	public void setErrTip(String errTip) {
-		this.errTip = errTip;
-	}
-
-	public String getHint() {
-		return hint;
-	}
-
-	public void setHint(String hint) {
-		this.hint = hint;
-	}
-
-	public Map<String, String> getAttribute() {
-		return attribute;
-	}
-
-	public void setAttribute(Map<String, String> attribute) {
-		this.attribute = attribute;
-	}
 
 	/**
 	 * 向HTML属性中添加一项数据
@@ -361,14 +275,6 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 			customAttr = new HashMap<>();
 		}
 		customAttr.put(key, value);
-	}
-
-	public Map<String, String> getStyle() {
-		return style;
-	}
-
-	public void setStyle(Map<String, String> style) {
-		this.style = style;
 	}
 
 	public void addStyle(String key, String value) {
