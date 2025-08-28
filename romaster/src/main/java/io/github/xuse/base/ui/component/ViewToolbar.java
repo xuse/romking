@@ -6,9 +6,19 @@ import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Header;
-import com.vaadin.flow.theme.lumo.LumoUtility.*;
+import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
+import com.vaadin.flow.theme.lumo.LumoUtility.Display;
+import com.vaadin.flow.theme.lumo.LumoUtility.Flex;
+import com.vaadin.flow.theme.lumo.LumoUtility.FlexDirection;
+import com.vaadin.flow.theme.lumo.LumoUtility.FontSize;
+import com.vaadin.flow.theme.lumo.LumoUtility.FontWeight;
+import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
+import com.vaadin.flow.theme.lumo.LumoUtility.JustifyContent;
+import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 
-public final class ViewToolbar extends Composite<Header> {
+import io.github.xuse.jetui.common.Form;
+
+public final class ViewToolbar extends Composite<Header> implements Form{
     /**
      * 构造一个带有标题和操作组件的工具栏
      * 
@@ -40,4 +50,9 @@ public final class ViewToolbar extends Composite<Header> {
                 FlexDirection.Breakpoint.Medium.ROW, AlignItems.Breakpoint.Medium.CENTER);
         return group;
     }
+
+	@Override
+	public Object getValue(String field) {
+		return null;
+	}
 }

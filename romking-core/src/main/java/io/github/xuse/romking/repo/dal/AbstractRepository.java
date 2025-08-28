@@ -5,7 +5,9 @@ import java.util.stream.Stream;
 
 import com.github.xuse.querydsl.repository.GenericRepository;
 
-public class AbstractRepository<T,ID,F> extends GenericRepository<T, ID>{
+import io.github.xuse.jetui.repository.ListDataProvider;
+
+public class AbstractRepository<T,ID,F> extends GenericRepository<T, ID> implements ListDataProvider<T,F>{
 	public int count(Optional<F> f) {
 		if(f.isPresent()) {
 			return countByCondition(f.get());	

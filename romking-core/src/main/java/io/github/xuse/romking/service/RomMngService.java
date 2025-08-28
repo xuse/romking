@@ -3,9 +3,11 @@ package io.github.xuse.romking.service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.github.xuse.querydsl.util.Assert;
 
+import io.github.xuse.jetui.repository.ListDataProvider;
 import io.github.xuse.romking.repo.dal.MediaFileRepository;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
@@ -16,7 +18,7 @@ import io.github.xuse.simple.context.Inject;
 import io.github.xuse.simple.context.Service;
 
 @Service
-public class RomMngService implements InitializingBean{
+public class RomMngService implements InitializingBean, ListDataProvider<RomRepo,Void>{
 	@Inject
 	private GlobalTaskService taskService;
 	
@@ -29,7 +31,21 @@ public class RomMngService implements InitializingBean{
 	@Inject
 	private MediaFileRepository mediaRepo;
 
-	public List<RomRepo> listRepos(int limit, int offset, Optional<Void> filter) {
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		Assert.notNull(taskService);
+		Assert.notNull(romDirRepo);
+		Assert.notNull(romFileRepo);
+		Assert.notNull(mediaRepo);
+	}
+
+	@Override
+	public int count(Optional<Void> f) {
+		return romDirRepo.countRepos();
+	}
+
+	@Override
+	public Stream<RomRepo> list(Optional<Void> f, int offset, int limit) {
 		List<RomRepo> list=romDirRepo.findRepos(limit, offset);
 		for(RomRepo r:list) {
 			List<RomDir> dirs=romDirRepo.find((s)->s.where(RomDirRepository.t.label.eq(r.getLabel())));
@@ -41,14 +57,6 @@ public class RomMngService implements InitializingBean{
 			int mediaCount=mediaRepo.count((s)->s.where(MediaFileRepository.dirId.in(dirIds)));
 			r.setMedias(mediaCount);
 		}
-		return list;
-	}
-
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		Assert.notNull(taskService);
-		Assert.notNull(romDirRepo);
-		Assert.notNull(romFileRepo);
-		Assert.notNull(mediaRepo);
+		return list.stream();
 	}
 }

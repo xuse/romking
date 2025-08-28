@@ -45,9 +45,7 @@ public class GlobalTask {
 	@ColumnSpec(name="task_code",type=Types.INTEGER,nullable = false)
 	@UnsavedValue(UnsavedValue.MinusNumber)
 	private int code;
-	
-	
-	
+
 	public static GlobalTask fromActive(Task active) {
 		GlobalTask task=new GlobalTask();
 		task.setBegin(new Date(active.getBegin()));

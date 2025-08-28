@@ -45,11 +45,6 @@ public enum InputType {
 	 */
 	FILE,
 	/**
-	 * 一个DISABLED的输入框。高输入框的值仅供显示，不会被提交。
-	 * @deprecated 不建议使用，使用Enabled来控制字段是否可编辑
-	 */
-	READONLY,
-	/**
 	 * 隐藏不可见的INPUT
 	 */
 	HIDDEN,
@@ -57,6 +52,15 @@ public enum InputType {
 	 * 日期选择框
 	 */
 	DATE,
+	
+	/**
+	 * 时间
+	 */
+	TIME,
+	/**
+	 * 邮件
+	 */
+	EMAIL,
 	/**
 	 * Span文本
 	 */

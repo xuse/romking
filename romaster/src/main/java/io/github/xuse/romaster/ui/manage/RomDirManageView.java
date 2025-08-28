@@ -8,12 +8,11 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.data.provider.CallbackDataProvider;
-import com.vaadin.flow.data.provider.DataProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import io.github.xuse.framework.vaadin.support.VaadinHelper;
+import io.github.xuse.framework.vaadin.support.VaadinViews;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.obj.RomDir;
 import io.github.xuse.romking.repo.obj.RomDirFilter;
@@ -40,20 +39,14 @@ public class RomDirManageView extends Main {
     public RomDirManageView() {
     	add(VaadinHelper.viewToolbarBuilder(RomDirFilter.class).button("查询",this::searchOnClick).build());
     	
-        taskGrid = new Grid<>();
+    	
+    	
     	addClassNames(LumoUtility.BoxSizing.BORDER, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
                 LumoUtility.Padding.MEDIUM, LumoUtility.Gap.SMALL);
-        
-        taskGrid.setDataProvider(this.createDataProvider());
-    	VaadinHelper.addColumns(taskGrid,RomDir.class);
+    	
+    	taskGrid = VaadinViews.createGrid(RomDir.class, romRepos);
     	add(taskGrid);
     }
-
-    private DataProvider<RomDir, RomDirFilter> createDataProvider() {
-    	return new CallbackDataProvider<>(
-    			(q)->romRepos.list(q.getFilter(), q.getOffset(), q.getLimit()),
-    			(q)-> romRepos.count(q.getFilter()));
-	}
 
 	private void createTask() {
 //        taskService.createTask(description.getValue(), dueDate.getValue());

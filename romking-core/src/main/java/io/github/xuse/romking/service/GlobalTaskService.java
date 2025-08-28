@@ -3,12 +3,15 @@ package io.github.xuse.romking.service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ExecutorService;
+import java.util.stream.Stream;
 
 import com.github.xuse.querydsl.datatype.util.Threads;
 import com.github.xuse.querydsl.sql.SQLQueryFactory;
 import com.github.xuse.querydsl.util.DateUtils;
 
+import io.github.xuse.jetui.repository.ListDataProvider;
 import io.github.xuse.romking.repo.obj.GlobalTask;
 import io.github.xuse.romking.repo.obj.QGlobalTask;
 import io.github.xuse.romking.tasks.ProcessResult;
@@ -21,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class GlobalTaskService {
+public class GlobalTaskService implements ListDataProvider<GlobalTask, Void> {
 	
 	public static final QGlobalTask table=QGlobalTask.globalTask;
 	
@@ -42,7 +45,17 @@ public class GlobalTaskService {
 		return globals;
 	}
 	
-	public List<GlobalTask> list(int limit){
+	@Override
+	public int count(Optional<Void> f) {
+		long dbCount=factory.selectFrom(table).fetchCount();
+		return (int)dbCount+activeTasks.size();
+	}
+
+	@Override
+	public Stream<GlobalTask> list(Optional<Void> f, int offset, int limit) {
+		if(offset>0) {
+			log.error("不支持翻页");
+		}
 		List<GlobalTask> tasks=new ArrayList<>();
 		for(Task active:activeTasks ) {
 			tasks.add(GlobalTask.fromActive(active));
@@ -52,9 +65,8 @@ public class GlobalTaskService {
 			 List<GlobalTask> dbTasks= factory.selectFrom(table).limit(left).fetch();
 			 tasks.addAll(dbTasks);
 		}
-		return tasks;
+		return tasks.stream();
 	}
-
 	
 	public void submit(Task raw) {
 		checkTasks(raw);
@@ -110,5 +122,4 @@ public class GlobalTaskService {
 			}
 		}
 	}
-	
 }

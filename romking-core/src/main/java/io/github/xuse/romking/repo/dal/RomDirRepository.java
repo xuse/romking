@@ -14,7 +14,7 @@ import io.github.xuse.romking.repo.vo.RomRepo;
 import io.github.xuse.simple.context.Service;
 
 @Service
-public class RomDirRepository extends AbstractRepository<RomDir, Integer,RomDirFilter>{
+public class RomDirRepository extends AbstractRepository<RomDir, Integer, RomDirFilter> {
 	public static final QRomDir t = QRomDir.romDir;
 	
 	
@@ -40,5 +40,9 @@ public class RomDirRepository extends AbstractRepository<RomDir, Integer,RomDirF
 		repo.setLabel(tuple.get(t.label));
 		repo.setDirs(tuple.get(1, Integer.class));
 		return repo;
+	}
+
+	public int countRepos() {
+		return factory.select(t.label.countDistinct()).from(t).fetchFirst().intValue();
 	}
 }
