@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import com.github.xuse.querydsl.util.TypeUtils;
 import com.vaadin.flow.component.AbstractField;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -28,12 +27,12 @@ public class VaadinForms {
 	
 	
 	
-	public static <T> GenericForm<T> createBinderForom(Class<T> clz) {
-		return createBinderForom(TypeUtils.newInstance(clz),clz);
+	public static <T> AutoForm<T> createAutoForm(Class<T> clz) {
+		return new AutoForm<T>(null, clz);
 	}
 	
-	public static <T> GenericForm<T> createBinderForom(T object, Class<T> clz) {
-		GenericForm<T> form=new GenericForm<>(object,clz);
+	public static <T> AutoForm<T> createAutoForm(T object, Class<T> clz) {
+		AutoForm<T> form=new AutoForm<>(object,clz);
 		form.scanFields();
 		return form;
 	}	

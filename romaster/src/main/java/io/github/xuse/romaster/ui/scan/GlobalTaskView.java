@@ -4,8 +4,11 @@ import javax.annotation.Resource;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.data.provider.CallbackDataProvider;
 import com.vaadin.flow.data.provider.DataProvider;
 import com.vaadin.flow.router.Menu;
@@ -13,6 +16,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
+import io.github.xuse.framework.vaadin.support.AutoForm;
+import io.github.xuse.framework.vaadin.support.VaadinForms;
 import io.github.xuse.framework.vaadin.support.VaadinHelper;
 import io.github.xuse.framework.vaadin.support.VaadinViews;
 import io.github.xuse.romking.repo.obj.GlobalTask;
@@ -28,10 +33,11 @@ public class GlobalTaskView extends Main {
 	@Resource
     private GlobalTaskService taskService;
     final Grid<GlobalTask> taskGrid;
+   
 
     public GlobalTaskView() {
         add(VaadinHelper.viewToolbarBuilder(TaskForm.class)
-        		.button("扫描", this::scan)
+        		.button("扫描", this::scanDialog)
         		.build());
         
         add(taskGrid=VaadinViews.createGrid(GlobalTask.class, taskService));
@@ -48,13 +54,26 @@ public class GlobalTaskView extends Main {
     
     
     
-    private void scan(ClickEvent<Button> e) {
-//        taskService.createTask(description.getValue(), dueDate.getValue());
-//        taskGrid.getDataProvider().refreshAll();
-//        description.clear();
-//        dueDate.clear();
-//        Notification.show("Task added", 3000, Notification.Position.BOTTOM_END)
-//                .addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+    private void scanDialog(ClickEvent<Button> event) {
+    	AutoForm<TaskForm> form = VaadinForms.createAutoForm(new TaskForm(), TaskForm.class);
+    	Dialog dialog = new Dialog();
+    	dialog.setHeaderTitle("Scan");
+    	Button closeButton = new Button(new Icon("lumo", "cross"),(e) -> dialog.close());
+    	closeButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+    	dialog.getHeader().add(closeButton);
+    	
+    	Button cancelButton = new Button("Cancel", (e) -> dialog.close());
+    	cancelButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+    	dialog.getFooter().add(cancelButton);
+    	
+    	Button scanButton = new Button("Scan", this::doScan); //(e) -> dialog.close()
+    	scanButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+    //	scanButton.getStyle().set("margin-right", "auto");
+    	dialog.getFooter().add(scanButton);
+    }
+    
+    private void doScan(ClickEvent<Button> event) {
+    	System.out.println("后台工作");
     }
 
 }
