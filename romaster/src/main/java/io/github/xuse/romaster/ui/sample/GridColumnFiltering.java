@@ -130,13 +130,6 @@ public class GridColumnFiltering extends Div {
 				.withProperty("pictureUrl", Person::getPictureUrl).withProperty("fullName", Person::getFullName);
 	}
 
-	@Data
-	public static class Person {
-		private String pictureUrl;
-		private String fullName;
-		private String profession;
-		private String email;
 
-	}
 
 }

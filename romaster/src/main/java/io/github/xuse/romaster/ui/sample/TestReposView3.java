@@ -12,20 +12,19 @@ import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
 import jakarta.annotation.security.PermitAll;
 
-@Route("test-list2")
-@PageTitle("Test2")
-@Menu(order = 6, icon = "vaadin:toolbox", title = "Test List2")
+@Route("test-list3")
+@PageTitle("Test3")
+@Menu(order = 6, icon = "vaadin:toolbox", title = "Test List3")
 @PermitAll
-public class TestReposView2 extends Main {
+public class TestReposView3 extends Main {
 	
-	public TestReposView2(RomService taskService, RomFileRepository repo,RomConsole console) {
+	public TestReposView3(RomService taskService, RomFileRepository repo,RomConsole console) {
 		addClassNames(LumoUtility.BoxSizing.BORDER, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
 				LumoUtility.Padding.MEDIUM, LumoUtility.Gap.SMALL);
 		TabSheet tabSheet = new TabSheet();
-		tabSheet.add("GridFilter", new GridColumnFiltering());
-		tabSheet.add("Icons Explorer", new ShowIcons());
-		tabSheet.add("DbGrid", new GridDbFilteing(repo));
-		tabSheet.add("TestButton", new TestButtonPanel(console));
+		tabSheet.add("Grid1", new GridItemDetailsToggle());
+		tabSheet.add("Grid2", new GridManualPagination());
+
 		
 		add(tabSheet);
 		setSizeFull();
