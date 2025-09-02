@@ -2,6 +2,7 @@ package io.github.xuse.romking.repo.obj;
 
 import java.sql.Types;
 
+import com.github.xuse.querydsl.annotation.UnsavedValue;
 import com.github.xuse.querydsl.annotation.dbdef.ColumnSpec;
 import com.github.xuse.querydsl.annotation.dbdef.Key;
 import com.github.xuse.querydsl.annotation.dbdef.TableSpec;
@@ -25,6 +26,7 @@ public class MediaFile {
 	 * 所属仓库
 	 */
 	@ColumnSpec(nullable = false,type=Types.INTEGER,unsigned = true)
+	@UnsavedValue(UnsavedValue.ZeroAndMinus)
 	private int dirId; 
 	
 	
@@ -39,6 +41,7 @@ public class MediaFile {
 	 * 引用次数
 	 */
 	@ColumnSpec(name="ref_count",nullable = false,size = 256,type = Types.SMALLINT)
+	@UnsavedValue(UnsavedValue.ZeroAndMinus)
 	private int referCount;
 	
 	/**

@@ -20,8 +20,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.xuse.romking.repo.obj.RomFile;
-
 public class ArchiveSummary {
 	private long sourceSizeTotal = 0;
 	private long packedSizeTotal = 0;

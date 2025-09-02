@@ -13,3 +13,4 @@ db
 .vscode
 test.txt
 generated/
+node_modules/

@@ -1,11 +1,16 @@
 package io.github.xuse.base.ui.view;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.avatar.AvatarVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Hr;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -85,7 +90,18 @@ public final class MainLayout extends AppLayout {
     private SideNav createSideNav() {
         var nav = new SideNav();
         nav.addClassNames(Margin.Horizontal.MEDIUM);
-        MenuConfiguration.getMenuEntries().forEach(entry -> nav.addItem(createSideNavItem(entry)));
+        List<MenuEntry> entries = new ArrayList<>(MenuConfiguration.getMenuEntries());
+        boolean testDiv=false;
+        for (int i = 0; i < entries.size(); i++) {
+            MenuEntry entry = entries.get(i);
+            Class<?> clz=entry.menuClass();
+            SideNavItem item= createSideNavItem(entry);
+            if(!testDiv && clz.getSimpleName().startsWith("Test")) {
+            	nav.getElement().appendChild(new Hr().getElement());
+            	testDiv=true;
+            }
+            nav.addItem(item);
+        }
         return nav;
     }
 

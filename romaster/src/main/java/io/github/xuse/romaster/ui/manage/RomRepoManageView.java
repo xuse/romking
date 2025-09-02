@@ -10,6 +10,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import io.github.xuse.framework.vaadin.support.VaadinViews;
+import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.vo.RomRepo;
 import io.github.xuse.romking.service.RomMngService;
@@ -20,16 +21,14 @@ import jakarta.annotation.security.PermitAll;
 @Menu(order = 0, icon = "vaadin:mailbox", title = "Roms Repositories")
 @PermitAll 
 public class RomRepoManageView extends Main {
-
-	@Autowired
-    private RomMngService romServicer;
-	
-	@Autowired
-	private RomDirRepository romDirRepo;
-
     final Grid<RomRepo> grid;
     
-    public RomRepoManageView() {
+    public RomRepoManageView(RomConsole console) {
+
+        RomMngService romServicer = console.getBean(RomMngService.class);
+    	
+    	RomDirRepository romDirRepo = console.getBean(RomDirRepository.class);
+    	
         grid = VaadinViews.createGrid(RomRepo.class, romServicer);
         addClassNames(LumoUtility.BoxSizing.BORDER, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
                 LumoUtility.Padding.MEDIUM, LumoUtility.Gap.SMALL);

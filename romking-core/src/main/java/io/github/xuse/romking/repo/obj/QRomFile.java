@@ -1,19 +1,21 @@
 package io.github.xuse.romking.repo.obj;
 
-import com.querydsl.core.types.dsl.DatePath;
-import com.querydsl.core.types.dsl.NumberPath;
-import io.github.xuse.romking.repo.enums.WrapType;
-import io.github.xuse.romking.core.Platform;
-import com.querydsl.core.types.dsl.DateTimePath;
 import java.time.Instant;
-import io.github.xuse.romking.core.GameType;
-import com.querydsl.core.types.dsl.SimplePath;
-import com.querydsl.core.types.dsl.EnumPath;
-import java.sql.Date;
-import io.github.xuse.romking.repo.enums.Region;
-import com.querydsl.core.types.dsl.StringPath;
+import java.util.Date;
 import java.util.Map;
+
 import com.github.xuse.querydsl.sql.RelationalPathBaseEx;
+import com.querydsl.core.types.dsl.DatePath;
+import com.querydsl.core.types.dsl.DateTimePath;
+import com.querydsl.core.types.dsl.EnumPath;
+import com.querydsl.core.types.dsl.NumberPath;
+import com.querydsl.core.types.dsl.SimplePath;
+import com.querydsl.core.types.dsl.StringPath;
+
+import io.github.xuse.romking.core.GameType;
+import io.github.xuse.romking.core.Platform;
+import io.github.xuse.romking.repo.enums.Region;
+import io.github.xuse.romking.repo.enums.WrapType;
 
 public class QRomFile extends RelationalPathBaseEx<RomFile> {
 

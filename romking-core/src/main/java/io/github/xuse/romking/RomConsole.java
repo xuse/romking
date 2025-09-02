@@ -21,8 +21,12 @@ import com.zaxxer.hikari.HikariDataSource;
 
 import io.github.xuse.romking.metadata.ee.GameListService;
 import io.github.xuse.romking.metadata.ee.Gamelist;
+import io.github.xuse.romking.repo.obj.QRomDir;
+import io.github.xuse.romking.repo.obj.QRomFile;
 import io.github.xuse.romking.repo.obj.RomDir;
+import io.github.xuse.romking.repo.obj.RomFile;
 import io.github.xuse.romking.service.RomImportService;
+import io.github.xuse.romking.util.RandomData;
 import io.github.xuse.simple.context.ApplicationContext;
 import io.github.xuse.simple.context.Inject;
 import lombok.Getter;
@@ -58,6 +62,16 @@ public class RomConsole {
 		List<RomDir> roms=factory.selectFrom(t).fetch();
 		System.out.println(roms);
 	}
+	
+	@Test
+	public void testRomFile() {
+		RomFile o=RandomData.newInstance(RomFile.class);
+		System.out.println(o.getCreateTime());
+		System.out.println(o.getRomModified());
+		factory.insert(QRomFile.romFile).populate(o).execute();
+		
+		System.out.println(factory.select(QRomFile.romFile).fetchCount());
+	}
 
 	public RomConsole() {
 		SimpleDataSource datasource = new SimpleDataSource();
@@ -87,7 +101,7 @@ public class RomConsole {
 	public static ConfigurationEx querydslConfiguration(SQLTemplates templates) {
 		ConfigurationEx configuration = new ConfigurationEx(templates);
 		configuration.setSlowSqlWarnMillis(5000);
-		configuration.addListener(new QueryDSLSQLListener(QueryDSLSQLListener.FORMAT_COMPACT));
+		configuration.addListener(new QueryDSLSQLListener(QueryDSLSQLListener.FORMAT_DEBUG));
 		configuration.addListener(new UpdateDeleteProtectListener());
 		configuration.getScanOptions()
 				.setAlterExistTable(true)

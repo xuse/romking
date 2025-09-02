@@ -2,13 +2,23 @@ package io.github.xuse.framework.vaadin.support;
 
 import java.lang.reflect.Field;
 
+import com.github.xuse.querydsl.util.Assert;
 import com.github.xuse.querydsl.util.StringUtils;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.Grid.Column;
+import com.vaadin.flow.component.grid.dataview.GridDataView;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.provider.CallbackDataProvider;
+import com.vaadin.flow.data.provider.ConfigurableFilterDataProvider;
+import com.vaadin.flow.data.value.ValueChangeMode;
 
 import io.github.xuse.jetui.annotation.ViewColumn;
 import io.github.xuse.jetui.repository.ListDataProvider;
+import lombok.Data;
 
 public class VaadinViews {
 	private VaadinViews() {
@@ -23,15 +33,55 @@ public class VaadinViews {
 			}
 			Column<?> column = grid.addColumn(new FieldAccessor<>(field, c))
 					.setHeader(nullIf(c.caption(), field.getName()));
+			if (c.sortable()) {
+				column.setSortable(true);
+			}
+
 		}
 		grid.setSizeFull();
 	}
 
 	public static <T, F> Grid<T> createGrid(Class<T> clz, ListDataProvider<T, F> repo) {
-		Grid<T> grid = new Grid<>(clz,false);
+		Assert.notNull(clz);
+		Assert.notNull(repo);
+		Grid<T> grid = new Grid<>(clz, false);
 		grid.setDataProvider(new CallbackDataProvider<T, F>(
-				(q) -> repo.list(q.getFilter(), q.getOffset(), q.getLimit()),
-				(q) -> repo.count(q.getFilter())));
+				(q) -> repo.list(q.getFilter(), q.getOffset(), q.getLimit()), (q) -> repo.count(q.getFilter())));
+		addColumns(grid, clz);
+		return grid;
+	}
+
+	public static <T, F> Component createGridWithSimpleSearch(Class<T> clz, ListDataProvider<T, F> repo,F fileter) {
+		SimpleFilter sf = new SimpleFilter();
+		CallbackDataProvider<T, F> dataProvider = new CallbackDataProvider<T, F>(
+				(q) -> repo.list(q.getFilter(), q.getOffset(), q.getLimit()), (q) -> repo.count(q.getFilter()));
+		
+		ConfigurableFilterDataProvider<T,Void,F> filterDataProvider = dataProvider.withConfigurableFilter();
+
+		Grid<T> grid = new Grid<>(clz, false);
+		addColumns(grid, clz);
+		@SuppressWarnings("unused")
+		GridDataView<T> dataView = grid.setItems(filterDataProvider);
+
+		TextField searchField = new TextField();
+		searchField.setWidth("50%");
+		searchField.setPlaceholder("Search");
+		searchField.setPrefixComponent(new Icon(VaadinIcon.SEARCH));
+	    searchField.setValueChangeMode(ValueChangeMode.EAGER);
+	    searchField.addValueChangeListener(e -> {
+	    	sf.setText(e.getValue());
+	        filterDataProvider.setFilter(fileter);
+	    });
+	    
+	    VerticalLayout layout = new VerticalLayout(searchField, grid);
+	    layout.setPadding(false);
+		return layout;
+	}
+
+	public static <T, F> Component createGridWithSearchFilter(Class<T> clz, ListDataProvider<T, F> repo, F filter) {
+		Grid<T> grid = new Grid<>(clz, false);
+		grid.setDataProvider(new CallbackDataProvider<T, F>(
+				(q) -> repo.list(q.getFilter(), q.getOffset(), q.getLimit()), (q) -> repo.count(q.getFilter())));
 		addColumns(grid, clz);
 		return grid;
 	}
@@ -88,5 +138,10 @@ public class VaadinViews {
 
 	private static String nullIf(String caption, String fieldName) {
 		return StringUtils.isNotEmpty(caption) ? caption : fieldName;
+	}
+
+	@Data
+	static class SimpleFilter {
+		private String text;
 	}
 }

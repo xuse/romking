@@ -1,7 +1,5 @@
 package io.github.xuse.romaster.ui.scan;
 
-import javax.annotation.Resource;
-
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -9,8 +7,6 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.data.provider.CallbackDataProvider;
-import com.vaadin.flow.data.provider.DataProvider;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -20,6 +16,7 @@ import io.github.xuse.framework.vaadin.support.AutoForm;
 import io.github.xuse.framework.vaadin.support.VaadinForms;
 import io.github.xuse.framework.vaadin.support.VaadinHelper;
 import io.github.xuse.framework.vaadin.support.VaadinViews;
+import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.obj.GlobalTask;
 import io.github.xuse.romking.service.GlobalTaskService;
 import jakarta.annotation.security.PermitAll;
@@ -30,30 +27,23 @@ import jakarta.annotation.security.PermitAll;
 @PermitAll
 public class GlobalTaskView extends Main {
 
-	@Resource
-    private GlobalTaskService taskService;
     final Grid<GlobalTask> taskGrid;
+    final RomConsole console;
    
 
-    public GlobalTaskView() {
+    public GlobalTaskView(RomConsole console) {
+    	this.console=console;
+    	
         add(VaadinHelper.viewToolbarBuilder(TaskForm.class)
         		.button("扫描", this::scanDialog)
         		.build());
-        
+        GlobalTaskService taskService = console.getBean(GlobalTaskService.class);
         add(taskGrid=VaadinViews.createGrid(GlobalTask.class, taskService));
         addClassNames(LumoUtility.BoxSizing.BORDER, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
                 LumoUtility.Padding.MEDIUM, LumoUtility.Gap.SMALL);
         
     }
 	
-    private DataProvider<GlobalTask, Void> createDataProvider() {
-    	return new CallbackDataProvider<>(
-    			(q)->taskService.list(q.getFilter(), q.getOffset(), q.getLimit()),
-    			(q)-> taskService.count(q.getFilter()));
-	}
-    
-    
-    
     private void scanDialog(ClickEvent<Button> event) {
     	AutoForm<TaskForm> form = VaadinForms.createAutoForm(new TaskForm(), TaskForm.class);
     	Dialog dialog = new Dialog();

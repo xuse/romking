@@ -67,10 +67,8 @@ import com.github.xuse.querydsl.util.DateUtils;
 import com.github.xuse.querydsl.util.IOUtils;
 import com.github.xuse.querydsl.util.StringUtils;
 
-import io.github.xuse.romking.util.BeanReader;
 import io.github.xuse.romking.util.Charsets;
-import io.github.xuse.romking.util.RandomFieldAccess.BeanBuilder;
-import io.github.xuse.romking.util.RandomFieldAccess.Property;
+import io.github.xuse.romking.util.bean.BeanWrapper;
 
 /**
  * 使用JAXP，封装了基于XML的各种基本操作
@@ -1475,20 +1473,19 @@ public class XMLUtils {
 	 * @return Bean
 	 */
 	public static <W> W loadBean(Element e, Class<W> clz) {
-		BeanBuilder<W> bw = new BeanBuilder<>(clz);
+		BeanWrapper<W> bw = BeanWrapper.creator(clz);
 		Map<String, String> attrs = getAttributesMap(e, true);
-		for (Property key : bw.getPropertyNames()) {
-			XMLField annotation=key.getAnnotation(XMLField.class);
-			String keyName=key.getName();
+		for (String keyName : bw.getRwPropertyNames()) {
+			XMLField annotation=bw.getAnnotationOnField(keyName,XMLField.class);
 			if(annotation!=null && StringUtils.isNotEmpty(annotation.value())) {
 				keyName=annotation.value();
 			}
 			String value=attrs.remove(keyName);
 			if (value!=null) {
-				bw.setPropertyValueByString(key, value);
+				bw.setPropertyValueByString(keyName, value);
 			}
 		}
-		W w=bw.build();
+		W w=bw.refresh();
 		if(!attrs.isEmpty() && w instanceof XmlAttrContainer) {
 			XmlAttrContainer container=(XmlAttrContainer)w;
 			for(Entry<String,String> entry:attrs.entrySet()) {
@@ -2130,7 +2127,7 @@ public class XMLUtils {
 			if (bean == null)
 				return null;
 			Element root = addElement(parent, tagName);
-			BeanReader<?> bw = new BeanReader<>(bean);
+			BeanWrapper<?> bw = BeanWrapper.of(bean);
 			String ignoreProperty="";
 			if(bean instanceof XmlAttrContainer) {
 				XmlAttrContainer b=(XmlAttrContainer)bean;
@@ -2139,17 +2136,18 @@ public class XMLUtils {
 				}
 				ignoreProperty="attributes";
 			}
-			while(bw.next()) {
-				String propertyName=bw.getPropertyName();
+			for(String propertyName:bw.getRwPropertyNames()) {
 				if(propertyName.equals(ignoreProperty)) {
 					continue;
 				}
-				XMLField anno=bw.getAnnotation(XMLField.class);
+				XMLField anno=bw.getAnnotationOnField(propertyName, XMLField.class);
 				String newTagName=propertyName;
 				if(anno!=null && StringUtils.isNotEmpty(anno.value())) {
 					newTagName=anno.value();
 				}
-				appendBean(root, bw.getValue(), bw.getValueType(), newTagName,asAttrib);
+				Object value=bw.getPropertyValue(propertyName);
+				
+				appendBean(root, value, bw.getPropertyType("propertyName"), newTagName,asAttrib);
 			}
 			return root;
 		}
