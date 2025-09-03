@@ -14,8 +14,8 @@ import io.github.xuse.romking.core.Platform;
 import io.github.xuse.romking.repo.enums.MediaType;
 import io.github.xuse.romking.repo.enums.WrapType;
 import io.github.xuse.romking.repo.obj.RomFile;
-import io.github.xuse.romking.util.ZipUtils;
-import io.github.xuse.romking.util.zip.ArchiveSummary;
+import io.github.xuse.simple.context.util.ZipUtils;
+import io.github.xuse.simple.context.util.zip.ArchiveSummary;
 
 
 

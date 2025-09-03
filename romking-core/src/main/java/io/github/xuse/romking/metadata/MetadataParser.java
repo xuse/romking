@@ -1,5 +1,7 @@
 package io.github.xuse.romking.metadata;
 
-public interface MetadataParser {
+import java.io.File;
 
+public interface MetadataParser {
+	Metadata parse(File file);
 }

@@ -21,14 +21,13 @@ import com.zaxxer.hikari.HikariDataSource;
 
 import io.github.xuse.romking.metadata.ee.GameListService;
 import io.github.xuse.romking.metadata.ee.Gamelist;
-import io.github.xuse.romking.repo.obj.QRomDir;
 import io.github.xuse.romking.repo.obj.QRomFile;
 import io.github.xuse.romking.repo.obj.RomDir;
 import io.github.xuse.romking.repo.obj.RomFile;
 import io.github.xuse.romking.service.RomImportService;
-import io.github.xuse.romking.util.RandomData;
 import io.github.xuse.simple.context.ApplicationContext;
 import io.github.xuse.simple.context.Inject;
+import io.github.xuse.simple.context.util.RandomData;
 import lombok.Getter;
 
 @Getter

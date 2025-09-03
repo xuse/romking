@@ -7,8 +7,8 @@ import java.util.List;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import io.github.xuse.romking.util.xml.XMLUtils;
 import io.github.xuse.simple.context.Service;
+import io.github.xuse.simple.context.util.xml.XMLUtils;
 import lombok.SneakyThrows;
 
 @Service

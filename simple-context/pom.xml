@@ -1,17 +1,29 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>io.github.xuse</groupId>
-    <artifactId>romking</artifactId>
-    <version>1.0.0</version>
-  </parent>
-  <artifactId>simple-context</artifactId>
-  <name>simple-context</name>
-  <properties>
-  </properties>
-  <dependencies>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>io.github.xuse</groupId>
+		<artifactId>romking</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>simple-context</artifactId>
+	<name>simple-context</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
+		<maven.compiler.testSource>8</maven.compiler.testSource>
+		<maven.compiler.testTarget>8</maven.compiler.testTarget>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.10.0</version>
+		</dependency>
 		<dependency>
 			<groupId>io.github.xuse</groupId>
 			<artifactId>querydsl-sql-extension-datatype</artifactId>
@@ -22,5 +34,10 @@
 			<artifactId>querydsl-sql-extension-codegen</artifactId>
 			<version>5.0.0-r140</version>
 		</dependency>
-  </dependencies>
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+	</dependencies>
 </project>

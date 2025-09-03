@@ -16,7 +16,7 @@ import com.github.xuse.querydsl.util.ClassScanner;
 import io.github.xuse.querydsl.sql.code.generate.QCalssGenerator;
 import io.github.xuse.romking.repo.obj.GlobalTask;
 import io.github.xuse.romking.repo.obj.RomFile;
-import io.github.xuse.romking.util.RandomData;
+import io.github.xuse.simple.context.util.RandomData;
 
 public class CodeGenerateTest {
 	@Test

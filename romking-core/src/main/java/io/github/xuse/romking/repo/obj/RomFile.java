@@ -19,8 +19,8 @@ import io.github.xuse.romking.core.GameType;
 import io.github.xuse.romking.core.Platform;
 import io.github.xuse.romking.repo.enums.Region;
 import io.github.xuse.romking.repo.enums.WrapType;
-import io.github.xuse.romking.util.RandomValue;
-import io.github.xuse.romking.util.ValueType;
+import io.github.xuse.simple.context.util.RandomValue;
+import io.github.xuse.simple.context.util.ValueType;
 import lombok.Data;
 
 @Data

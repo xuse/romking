@@ -13,7 +13,7 @@ import io.github.xuse.romking.repo.dal.RomFileRepository;
 import io.github.xuse.romking.repo.enums.WrapType;
 import io.github.xuse.romking.repo.obj.QRomFile;
 import io.github.xuse.romking.repo.obj.RomFile;
-import io.github.xuse.romking.util.RandomData;
+import io.github.xuse.simple.context.util.RandomData;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
