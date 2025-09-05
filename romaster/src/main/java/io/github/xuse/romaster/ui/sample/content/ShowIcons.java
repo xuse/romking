@@ -1,4 +1,4 @@
-package io.github.xuse.romaster.ui.sample;
+package io.github.xuse.romaster.ui.sample.content;
 
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Hr;

@@ -1,4 +1,4 @@
-package io.github.xuse.base.ui.view;
+package io.github.xuse.jetui.vaadin.base;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.notification.Notification;

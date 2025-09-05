@@ -19,16 +19,16 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
-import io.github.xuse.base.ui.component.ViewToolbar;
+import io.github.xuse.jetui.vaadin.component.ViewToolbar;
 import io.github.xuse.romaster.service.RomService;
 import io.github.xuse.romking.repo.obj.RomDir;
 import jakarta.annotation.security.PermitAll;
 
 @Route("test-list")
 @PageTitle("Test1")
-@Menu(order = 5, icon = "vaadin:toolbox", title = "Test List")
+@Menu(order = 5, icon = "vaadin:toolbox", title = "表单示例Test List")
 @PermitAll 
-public class TestReposView extends Main {
+public class FirstSample extends Main {
 
     private final RomService taskService;
 
@@ -37,7 +37,7 @@ public class TestReposView extends Main {
     final Button createBtn;
     final Grid<RomDir> taskGrid;
 
-    public TestReposView(RomService taskService, Clock clock) {
+    public FirstSample(RomService taskService, Clock clock) {
         this.taskService = taskService;
 
         description = new TextField();

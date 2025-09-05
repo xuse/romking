@@ -8,24 +8,26 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 import io.github.xuse.romaster.service.RomService;
+import io.github.xuse.romaster.ui.sample.content.DbGridFull;
+import io.github.xuse.romaster.ui.sample.content.ShowIcons;
+import io.github.xuse.romaster.ui.sample.content.TestButtonPanel;
 import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
 import jakarta.annotation.security.PermitAll;
 
 @Route("test-list2")
-@PageTitle("Test2")
-@Menu(order = 6, icon = "vaadin:toolbox", title = "Test List2")
+@PageTitle("开发工具")
+@Menu(order = 6, icon = "vaadin:automation", title = "开发工具")
 @PermitAll
-public class TestReposView2 extends Main {
-	
-	public TestReposView2(RomService taskService, RomFileRepository repo,RomConsole console) {
+public class DevelopTolls extends Main {
+	public DevelopTolls(RomService taskService, RomFileRepository repo,RomConsole console) {
 		addClassNames(LumoUtility.BoxSizing.BORDER, LumoUtility.Display.FLEX, LumoUtility.FlexDirection.COLUMN,
 				LumoUtility.Padding.MEDIUM, LumoUtility.Gap.SMALL);
 		TabSheet tabSheet = new TabSheet();
-		tabSheet.add("GridFilter", new GridColumnFiltering());
-		tabSheet.add("Icons Explorer", new ShowIcons());
-		tabSheet.add("DbGrid", new GridDbFilteing(repo));
-		tabSheet.add("TestButton", new TestButtonPanel(console));
+		
+		tabSheet.add("图标一览", new ShowIcons());
+		tabSheet.add("开发者操作", new TestButtonPanel(console));
+		tabSheet.add("Grid完整", new DbGridFull());
 		
 		add(tabSheet);
 		setSizeFull();

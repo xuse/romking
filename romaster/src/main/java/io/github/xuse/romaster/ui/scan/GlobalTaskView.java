@@ -12,10 +12,10 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
-import io.github.xuse.framework.vaadin.support.AutoForm;
-import io.github.xuse.framework.vaadin.support.VaadinForms;
-import io.github.xuse.framework.vaadin.support.VaadinHelper;
-import io.github.xuse.framework.vaadin.support.VaadinViews;
+import io.github.xuse.jetui.vaadin.support.AutoForm;
+import io.github.xuse.jetui.vaadin.support.VaadinForms;
+import io.github.xuse.jetui.vaadin.support.VaadinHelper;
+import io.github.xuse.jetui.vaadin.support.VaadinViews;
 import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.obj.GlobalTask;
 import io.github.xuse.romking.service.GlobalTaskService;

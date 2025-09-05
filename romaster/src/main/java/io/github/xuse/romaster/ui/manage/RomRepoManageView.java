@@ -9,7 +9,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
-import io.github.xuse.framework.vaadin.support.VaadinViews;
+import io.github.xuse.jetui.vaadin.support.VaadinViews;
 import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.vo.RomRepo;

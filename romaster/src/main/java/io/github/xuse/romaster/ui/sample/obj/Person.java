@@ -1,6 +1,5 @@
-package io.github.xuse.romaster.ui.sample;
+package io.github.xuse.romaster.ui.sample.obj;
 
-import io.github.xuse.romaster.ui.sample.obj.Address;
 import lombok.Data;
 
 @Data

@@ -1,4 +1,4 @@
-package io.github.xuse.romaster.ui.sample;
+package io.github.xuse.romaster.ui.sample.content;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +19,7 @@ import com.vaadin.flow.data.renderer.Renderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 
+import io.github.xuse.romaster.ui.sample.obj.Person;
 import lombok.Data;
 
 @Route("grid-column-filtering")

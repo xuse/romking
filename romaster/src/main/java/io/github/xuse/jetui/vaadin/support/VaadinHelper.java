@@ -1,4 +1,4 @@
-package io.github.xuse.framework.vaadin.support;
+package io.github.xuse.jetui.vaadin.support;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 
-import io.github.xuse.base.ui.component.ViewToolbar;
 import io.github.xuse.jetui.annotation.FormField;
 import io.github.xuse.jetui.model.FormFieldModel;
+import io.github.xuse.jetui.vaadin.component.ViewToolbar;
 
 public class VaadinHelper {
 

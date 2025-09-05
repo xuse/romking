@@ -1,8 +1,9 @@
-package io.github.xuse.romaster.ui.sample;
+package io.github.xuse.romaster.ui.sample.content;
 
 import java.util.Arrays;
 import java.util.List;
 
+import io.github.xuse.romaster.ui.sample.obj.Person;
 import io.github.xuse.simple.context.util.RandomData;
 
 public class DataService {

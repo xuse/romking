@@ -1,4 +1,4 @@
-package io.github.xuse.base.ui.component;
+package io.github.xuse.jetui.vaadin.component;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Composite;

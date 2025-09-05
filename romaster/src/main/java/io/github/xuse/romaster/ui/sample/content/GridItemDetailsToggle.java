@@ -1,4 +1,4 @@
-package io.github.xuse.romaster.ui.sample;
+package io.github.xuse.romaster.ui.sample.content;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -11,6 +11,8 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.renderer.LitRenderer;
 import com.vaadin.flow.data.renderer.Renderer;
 import com.vaadin.flow.router.Route;
+
+import io.github.xuse.romaster.ui.sample.obj.Person;
 
 @Route("grid-item-details-toggle")
 public class GridItemDetailsToggle extends Div {
@@ -33,32 +35,29 @@ public class GridItemDetailsToggle extends Div {
         add(grid);
     }
 
+    //创建折叠小图标，并绑定折叠/展开事件。
     private static Renderer<Person> createToggleDetailsRenderer(
             Grid<Person> grid) {
-
-        return LitRenderer
-                .<Person> of("""
+    	//这个示例展示了在原生react中调用Java代码中的事件 
+        return LitRenderer.<Person> of("""
                     <vaadin-button
                         theme="tertiary icon"
                         aria-label="Toggle details"
                         aria-expanded="${model.detailsOpened ? 'true' : 'false'}"
                         @click="${handleClick}"
                     >
-                        <vaadin-icon
-                        .icon="${model.detailsOpened ? 'lumo:angle-down' : 'lumo:angle-right'}"
-                        ></vaadin-icon>
+                        <vaadin-icon .icon="${model.detailsOpened ? 'lumo:angle-down' : 'lumo:angle-right'}"></vaadin-icon>
                     </vaadin-button>
                 """)
-                .withFunction("handleClick",
-                        person -> grid.setDetailsVisible(person,
-                                !grid.isDetailsVisible(person)));
+                .withFunction("handleClick",person -> grid.setDetailsVisible(person,!grid.isDetailsVisible(person)));
     }
 
+    //将详情表单成为一个表格列的渲染器
     private static ComponentRenderer<PersonDetailsFormLayout, Person> createPersonDetailsRenderer() {
-        return new ComponentRenderer<>(PersonDetailsFormLayout::new,
-                PersonDetailsFormLayout::setPerson);
+        return new ComponentRenderer<>(PersonDetailsFormLayout::new,PersonDetailsFormLayout::setPerson);
     }
 
+    //创建详情表单
     private static class PersonDetailsFormLayout extends FormLayout {
         private final TextField emailField = new TextField("Email address");
         private final TextField phoneField = new TextField("Phone number");

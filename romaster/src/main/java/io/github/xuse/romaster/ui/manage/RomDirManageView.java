@@ -7,8 +7,8 @@ import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
-import io.github.xuse.framework.vaadin.support.VaadinHelper;
-import io.github.xuse.framework.vaadin.support.VaadinViews;
+import io.github.xuse.jetui.vaadin.support.VaadinHelper;
+import io.github.xuse.jetui.vaadin.support.VaadinViews;
 import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.obj.RomDir;

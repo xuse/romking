@@ -1,4 +1,4 @@
-package io.github.xuse.framework.vaadin.support;
+package io.github.xuse.jetui.vaadin.support;
 
 import java.lang.reflect.Field;
 

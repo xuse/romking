@@ -1,4 +1,4 @@
-package io.github.xuse.base.ui.view;
+package io.github.xuse.jetui.vaadin.base;
 
 import java.util.ArrayList;
 import java.util.Collections;

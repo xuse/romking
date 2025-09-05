@@ -1,4 +1,4 @@
-package io.github.xuse.romaster.ui.sample;
+package io.github.xuse.romaster.ui.sample.content;
 
 import java.util.Arrays;
 import java.util.List;
