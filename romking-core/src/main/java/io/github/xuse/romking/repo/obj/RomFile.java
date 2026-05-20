@@ -15,6 +15,7 @@ import com.github.xuse.querydsl.annotation.dbdef.TableSpec;
 import com.github.xuse.querydsl.datatype.JSONObjectType;
 import com.github.xuse.querydsl.types.EnumByCodeType;
 
+import io.github.xuse.jetui.annotation.ViewColumn;
 import io.github.xuse.romking.core.GameType;
 import io.github.xuse.romking.core.Platform;
 import io.github.xuse.romking.repo.enums.Region;
@@ -53,6 +54,7 @@ public class RomFile {
 	 * 如果是目录作为单个游戏ROM，那么这里是目录名
 	 */
 	@ColumnSpec(name="file_path",nullable = false,size = 256,type = Types.VARCHAR)
+	@ViewColumn(caption="文件路径")
 	private String filepath;
 	
 	/**
@@ -72,6 +74,7 @@ public class RomFile {
 	 * 游戏名
 	 */
 	@ColumnSpec(name="name",nullable = false,size = 64,type = Types.VARCHAR,defaultValue = "''")
+	@ViewColumn(caption="游戏名")
 	private String name;
 	
 	/**
@@ -85,6 +88,7 @@ public class RomFile {
 	 */
 	@ColumnSpec(nullable = false,type = Types.TINYINT,unsigned = true)
 	@CustomType(EnumByCodeType.class)
+	@ViewColumn(caption="区域")
 	private Region region;
 	
 	/**
@@ -110,12 +114,14 @@ public class RomFile {
 	 * 所属平台
 	 */
 	@ColumnSpec(nullable = false,type = Types.VARCHAR, size=14)
+	@ViewColumn(caption="平台")
 	private Platform platform;
 	
 	/**
 	 * 游戏文件名，对于压缩在ZIP中的文件，是指ZIP内的文件名
 	 */
 	@ColumnSpec(name="rom_name",nullable = false,type=Types.VARCHAR,size = 256)
+	@ViewColumn(caption="ROM文件名")
 	private String romName;
 	
 	/**
@@ -136,6 +142,7 @@ public class RomFile {
 	 */
 	@ColumnSpec(name="rom_len",nullable = false,type=Types.BIGINT,defaultValue = "0")
 	@UnsavedValue(UnsavedValue.MinusNumber)
+	@ViewColumn(caption="大小")
 	private long length;
 	
 	/**
@@ -165,6 +172,7 @@ public class RomFile {
 	@ColumnSpec(name="fav",type=Types.TINYINT,unsigned = true,nullable = false, defaultValue = "0")
 	@UnsavedValue(UnsavedValue.MinusNumber)
 	@RandomValue(numberMax = 10)
+	@ViewColumn(caption="★")
 	private int favorite;
 	
 	@ColumnSpec(nullable = false)

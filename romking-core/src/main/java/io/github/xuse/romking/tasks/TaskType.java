@@ -3,7 +3,9 @@ package io.github.xuse.romking.tasks;
 import com.github.xuse.querydsl.types.CodeEnum;
 
 public enum TaskType implements CodeEnum<TaskType>{
-	SCAN_DIR(false,1)
+	SCAN_DIR(false,1),
+	EXPORT(false,2),
+	ARCHIVE(false,3)
 	;
 	TaskType(boolean singleton, int code){
 		this.singleton=singleton;

@@ -8,6 +8,7 @@ import com.github.xuse.querydsl.annotation.dbdef.Key;
 import com.github.xuse.querydsl.annotation.dbdef.TableSpec;
 import com.github.xuse.querydsl.sql.ddl.ConstraintType;
 
+import io.github.xuse.jetui.annotation.ViewColumn;
 import io.github.xuse.romking.repo.enums.MediaType;
 import lombok.Data;
 
@@ -35,6 +36,7 @@ public class MediaFile {
 	 * 如果是目录作为单个游戏ROM，那么这里是目录名
 	 */
 	@ColumnSpec(name="file_path",nullable = false,size = 256,type = Types.VARCHAR)
+	@ViewColumn(caption="文件路径")
 	private String filepath;
 	
 	/**
@@ -42,18 +44,21 @@ public class MediaFile {
 	 */
 	@ColumnSpec(name="ref_count",nullable = false,size = 256,type = Types.SMALLINT)
 	@UnsavedValue(UnsavedValue.ZeroAndMinus)
+	@ViewColumn(caption="引用")
 	private int referCount;
 	
 	/**
 	 * 扩展名
 	 */
 	@ColumnSpec(name="ext",nullable = false,size = 8,type = Types.VARCHAR)
+	@ViewColumn(caption="类型")
 	private String ext;
 	
 	/**
 	 * 媒体类型
 	 */
 	@ColumnSpec(nullable = true,type=Types.TINYINT)
+	@ViewColumn(caption="媒体类型")
 	private MediaType type;
 	
 	/**

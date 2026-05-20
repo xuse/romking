@@ -25,7 +25,7 @@ public class VaadinViews {
 	}
 
 	@SuppressWarnings("unused")
-	private static final <T> void addColumns(Grid<T> grid, Class<T> clz) {
+	public static final <T> void addColumnsTo(Grid<T> grid, Class<T> clz) {
 		for (Field field : clz.getDeclaredFields()) {
 			ViewColumn c = field.getAnnotation(ViewColumn.class);
 			if (c == null) {
@@ -47,7 +47,7 @@ public class VaadinViews {
 		Grid<T> grid = new Grid<>(clz, false);
 		grid.setDataProvider(new CallbackDataProvider<T, F>(
 				(q) -> repo.list(q.getFilter(), q.getOffset(), q.getLimit()), (q) -> repo.count(q.getFilter())));
-		addColumns(grid, clz);
+		addColumnsTo(grid, clz);
 		return grid;
 	}
 
@@ -59,7 +59,7 @@ public class VaadinViews {
 		ConfigurableFilterDataProvider<T,Void,F> filterDataProvider = dataProvider.withConfigurableFilter();
 
 		Grid<T> grid = new Grid<>(clz, false);
-		addColumns(grid, clz);
+		addColumnsTo(grid, clz);
 		@SuppressWarnings("unused")
 		GridDataView<T> dataView = grid.setItems(filterDataProvider);
 
@@ -82,7 +82,7 @@ public class VaadinViews {
 		Grid<T> grid = new Grid<>(clz, false);
 		grid.setDataProvider(new CallbackDataProvider<T, F>(
 				(q) -> repo.list(q.getFilter(), q.getOffset(), q.getLimit()), (q) -> repo.count(q.getFilter())));
-		addColumns(grid, clz);
+		addColumnsTo(grid, clz);
 		return grid;
 	}
 
@@ -116,7 +116,7 @@ public class VaadinViews {
 //		form.add(searchButton);
 //
 //		// 添加列
-//		addColumns(grid, clz);
+//		addColumnsTo(grid, clz);
 //
 //		// 组合布局
 //		return new VerticalLayout(form, grid);

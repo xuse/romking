@@ -43,7 +43,11 @@ public class VaadinForms {
 	
 	private static TextField text(FormFieldModel model){
 		TextField field = new TextField();
-        field.setPlaceholder(model.getPlaceHolder());
+		String placeholder = model.getPlaceHolder();
+		if (placeholder == null || placeholder.isEmpty()) {
+			placeholder = model.getLabel();
+		}
+        field.setPlaceholder(placeholder);
         field.setAriaLabel(model.getLabel());
         if(model.getLabelWidth()>0)
         	field.setMaxLength(model.getLabelWidth());
@@ -58,6 +62,10 @@ public class VaadinForms {
 	}
 	private static Select<String> combo(FormFieldModel model){
 		Select<String> combo=new Select<>();
+		String label = model.getLabel();
+		if (label != null && !label.isEmpty()) {
+			combo.setLabel(label);
+		}
 		return combo;
 	}
 	private static TextArea textarea(FormFieldModel model){
@@ -112,6 +120,10 @@ public class VaadinForms {
 	}
 	private static Checkbox checkbox(FormFieldModel model){
 		Checkbox c=new Checkbox();
+		String label = model.getLabel();
+		if (label != null && !label.isEmpty()) {
+			c.setLabel(label);
+		}
 		return c;
 	}
 	
