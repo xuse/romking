@@ -1,6 +1,9 @@
 package io.github.xuse.jetui.vaadin.support;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 import com.github.xuse.querydsl.util.Assert;
 import com.github.xuse.querydsl.util.StringUtils;
@@ -26,13 +29,18 @@ public class VaadinViews {
 
 	@SuppressWarnings("unused")
 	public static final <T> void addColumnsTo(Grid<T> grid, Class<T> clz) {
+		List<Field> annotatedFields = new ArrayList<>();
 		for (Field field : clz.getDeclaredFields()) {
-			ViewColumn c = field.getAnnotation(ViewColumn.class);
-			if (c == null) {
-				continue;
+			if (field.getAnnotation(ViewColumn.class) != null) {
+				annotatedFields.add(field);
 			}
+		}
+		annotatedFields.sort(Comparator.comparingInt(f -> f.getAnnotation(ViewColumn.class).order()));
+		for (Field field : annotatedFields) {
+			ViewColumn c = field.getAnnotation(ViewColumn.class);
 			Column<?> column = grid.addColumn(new FieldAccessor<>(field, c))
-					.setHeader(nullIf(c.caption(), field.getName()));
+					.setHeader(nullIf(c.caption(), field.getName()))
+					.setKey(field.getName());
 			if (c.sortable()) {
 				column.setSortable(true);
 			}

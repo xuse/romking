@@ -42,7 +42,8 @@ public class VaadinHelper {
 			List<Component> components=new ArrayList<>();
 			for(Field field:clz.getDeclaredFields()) {
 				FormField ff=field.getAnnotation(FormField.class);
-				components.add(VaadinForms.createField(FormFieldModel.of(ff, field.getName(), field)));
+				if (ff == null) continue;
+				components.add(VaadinForms.createField(FormFieldModel.of(ff, field)));
 			}
 			this.components=components;
 		}

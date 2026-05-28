@@ -85,3 +85,34 @@ cd romaster && ./mvnw -Pproduction package
 # Docker
 docker build -t romaster:latest .
 ```
+
+## 性能与设计约束
+
+### Hash 计算策略（重要）
+仓库规模约 70TB，MD5 计算开销极大，必须谨慎使用：
+
+- **ZIP 文件的 CRC**：从 ZIP Central Directory 直接读取，零解压开销，优先使用
+- **MD5**：需要完整读取文件内容（ZIP 还需解压），仅在必要时计算
+- **文件元数据**：大小(size) + 修改日期(lastModified) 作为快速变更检测依据
+
+**扫描/校验时的跳过规则**：
+- 如果文件的 大小 + 修改日期 与数据库记录一致 → 跳过 MD5 计算，视为未变更
+- 如果是 ZIP 文件且 CRC 与记录一致 → 跳过 MD5 计算
+- 仅当上述快速检测发现不一致时，才计算 MD5 确认
+
+**MD5 计算时机**：
+- 首次扫描入库时（可选，由 computeMd5 选项控制）
+- 归档时（确保归档记录的准确性）
+- 用户手动触发"完整校验"时
+- 与 known_rom 表匹配识别版本时（如果 CRC+size 已能唯一匹配则不需要）
+
+### CRC 的定位
+- ZIP 文件：CRC 存储在 ZIP 文件头中，读取开销极低（仅解析 Central Directory）
+- 非 ZIP 文件：CRC32 计算需要读取全文件，但比 MD5 快（无加密运算）
+- 用途：快速去重预筛、快速校验、与 No-Intro DAT 匹配
+
+### RomFile 记录中的修改日期字段
+`romModified` 字段记录文件的 lastModified 时间戳，用于：
+- 增量扫描时判断文件是否变更
+- 配合 size 做快速变更检测，避免不必要的 hash 计算
+

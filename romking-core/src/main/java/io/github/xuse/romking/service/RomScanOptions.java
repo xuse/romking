@@ -31,12 +31,18 @@ public class RomScanOptions {
 	private boolean scanWithoutGamelist = true;
 
 	/**
-	 * 是否计算MD5（耗时操作）
+	 * 是否计算MD5（耗时操作，大文件平台建议关闭，归档时再补算）
 	 */
 	private boolean computeMd5 = true;
 
 	/**
-	 * 是否计算CRC（对ZIP内文件，CRC可从ZIP头直接获取）
+	 * 是否计算CRC（对ZIP内文件，CRC可从ZIP头直接获取，开销极低）
 	 */
 	private boolean computeCrc = true;
+
+	/**
+	 * 增量扫描模式：如果数据库中已有该文件记录，且 size+lastModified 未变，则跳过不重新计算hash。
+	 * 适用于重新扫描已有仓库的场景。
+	 */
+	private boolean incremental = false;
 }

@@ -53,7 +53,7 @@ public class ExportRomTask implements Task {
 	private final GameListService gameListService;
 
 	private long begin;
-	private String progress = "";
+	private volatile TaskProgress taskProgress = new TaskProgress("等待开始", 0, 0);
 
 	// 统计
 	private int totalFiles = 0;
@@ -88,8 +88,8 @@ public class ExportRomTask implements Task {
 	}
 
 	@Override
-	public String getProgress() {
-		return progress;
+	public TaskProgress getTaskProgress() {
+		return taskProgress;
 	}
 
 	@Override
@@ -166,7 +166,7 @@ public class ExportRomTask implements Task {
 			targetPlatformDir.mkdirs();
 		}
 
-		progress = "正在导出: " + platformDirName;
+		taskProgress = new TaskProgress("正在导出: " + platformDirName, copiedFiles + skippedFiles + md5MatchSkipped, totalFiles);
 
 		// 获取源目录下所有ROM文件
 		List<RomFile> romFiles = romFileRepo.find(q ->
@@ -239,8 +239,9 @@ public class ExportRomTask implements Task {
 		// 生成gamelist.xml
 		generateGamelist(targetPlatformDir, gameEntries);
 
-		progress = String.format("已完成: %s (复制%d, 跳过%d, 失败%d)",
-				platformDirName, copiedFiles, skippedFiles + md5MatchSkipped, failedFiles);
+		taskProgress = new TaskProgress(String.format("已完成: %s (复制%d, 跳过%d, 失败%d)",
+				platformDirName, copiedFiles, skippedFiles + md5MatchSkipped, failedFiles),
+				copiedFiles + skippedFiles + md5MatchSkipped, totalFiles);
 	}
 
 	/**

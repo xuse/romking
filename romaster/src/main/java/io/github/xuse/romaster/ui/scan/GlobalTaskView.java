@@ -11,7 +11,6 @@ import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
-import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
@@ -29,7 +28,6 @@ import jakarta.annotation.security.PermitAll;
 
 @Route("task-list")
 @PageTitle("Task List")
-@Menu(order = 1, icon = "vaadin:clipboard-check", title = "Global Tasks")
 @PermitAll
 public class GlobalTaskView extends Main {
 
@@ -106,6 +104,7 @@ public class GlobalTaskView extends Main {
 		options.setScanWithoutGamelist(formData.isScanWithoutGamelist());
 		options.setComputeMd5(formData.isComputeMd5());
 		options.setComputeCrc(formData.isComputeCrc());
+		options.setIncremental(formData.isIncremental());
 
 		// 提交扫描任务
 		try {

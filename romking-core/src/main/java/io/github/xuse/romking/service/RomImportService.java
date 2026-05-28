@@ -3,6 +3,7 @@ package io.github.xuse.romking.service;
 import java.io.File;
 
 import io.github.xuse.romking.metadata.ee.GameListService;
+import io.github.xuse.romking.nointro.DatManageService;
 import io.github.xuse.romking.repo.dal.MediaFileRepository;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
@@ -27,6 +28,9 @@ public class RomImportService {
 	@Inject
 	private GameListService gameListService;
 
+	@Inject
+	private DatManageService datManageService;
+
 	/**
 	 * 提交扫描任务
 	 * 
@@ -35,7 +39,7 @@ public class RomImportService {
 	 */
 	public void scan(File dir, RomScanOptions options) {
 		ScanRomTask task = new ScanRomTask(dir, options,
-				romDirRepo, romFileRepo, mediaRepo, gameListService);
+				romDirRepo, romFileRepo, mediaRepo, gameListService, datManageService);
 		taskService.submit(task);
 	}
 }

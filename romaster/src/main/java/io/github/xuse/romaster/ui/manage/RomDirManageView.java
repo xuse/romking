@@ -1,17 +1,16 @@
 package io.github.xuse.romaster.ui.manage;
 
-import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.data.provider.CallbackDataProvider;
+import com.vaadin.flow.data.provider.ConfigurableFilterDataProvider;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
-import io.github.xuse.jetui.vaadin.support.VaadinHelper;
 import io.github.xuse.jetui.vaadin.support.VaadinViews;
 import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
@@ -51,17 +50,24 @@ public class RomDirManageView extends Main implements HasUrlParameter<String> {
 	private void buildUI() {
 		removeAll();
 
-		add(VaadinHelper.viewToolbarBuilder(RomDirFilter.class)
-				.name("目录列表 - " + (repoLabel != null ? repoLabel : "全部"))
-				.button("查询", this::searchOnClick)
-				.build());
-
-		// 使用带过滤条件的数据提供
+		// 创建带过滤的Grid
 		RomDirFilter filter = new RomDirFilter();
-		if (repoLabel != null) {
+		if (repoLabel != null && !repoLabel.isEmpty()) {
 			filter.setLabel(repoLabel);
 		}
-		dirGrid = VaadinViews.createGrid(RomDir.class, romDirRepo);
+
+		dirGrid = new Grid<>(RomDir.class, false);
+		VaadinViews.addColumnsTo(dirGrid, RomDir.class);
+
+		// 使用ConfigurableFilterDataProvider，预设label过滤
+		CallbackDataProvider<RomDir, RomDirFilter> dataProvider = new CallbackDataProvider<>(
+				q -> romDirRepo.list(q.getFilter(), q.getOffset(), q.getLimit()),
+				q -> romDirRepo.count(q.getFilter()));
+		ConfigurableFilterDataProvider<RomDir, Void, RomDirFilter> filterProvider =
+				dataProvider.withConfigurableFilter();
+		filterProvider.setFilter(filter);
+		dirGrid.setItems(filterProvider);
+
 		dirGrid.setSizeFull();
 
 		// 点击行进入ROM文件列表
@@ -71,9 +77,5 @@ public class RomDirManageView extends Main implements HasUrlParameter<String> {
 		});
 
 		add(dirGrid);
-	}
-
-	private void searchOnClick(ClickEvent<Button> event) {
-		dirGrid.getDataProvider().refreshAll();
 	}
 }

@@ -1,21 +1,19 @@
 package io.github.xuse.romking.repo.obj;
 
-import java.time.Instant;
-import java.util.Date;
-import java.util.Map;
-
-import com.github.xuse.querydsl.sql.RelationalPathBaseEx;
-import com.querydsl.core.types.dsl.DatePath;
-import com.querydsl.core.types.dsl.DateTimePath;
-import com.querydsl.core.types.dsl.EnumPath;
 import com.querydsl.core.types.dsl.NumberPath;
-import com.querydsl.core.types.dsl.SimplePath;
-import com.querydsl.core.types.dsl.StringPath;
-
-import io.github.xuse.romking.core.GameType;
-import io.github.xuse.romking.core.Platform;
-import io.github.xuse.romking.repo.enums.Region;
 import io.github.xuse.romking.repo.enums.WrapType;
+import io.github.xuse.romking.repo.enums.FileStatus;
+import io.github.xuse.romking.core.Platform;
+import com.querydsl.core.types.dsl.DateTimePath;
+import java.time.Instant;
+import io.github.xuse.romking.core.GameType;
+import com.querydsl.core.types.dsl.SimplePath;
+import com.querydsl.core.types.dsl.EnumPath;
+import java.util.Date;
+import io.github.xuse.romking.repo.enums.Region;
+import com.querydsl.core.types.dsl.StringPath;
+import java.util.Map;
+import com.github.xuse.querydsl.sql.RelationalPathBaseEx;
 
 public class QRomFile extends RelationalPathBaseEx<RomFile> {
 
@@ -33,6 +31,8 @@ public class QRomFile extends RelationalPathBaseEx<RomFile> {
 
     public final StringPath name = createString("name");
 
+    public final StringPath displayName = createString("displayName");
+
     public final EnumPath<GameType> gameType = createEnum("gameType", GameType.class);
 
     public final EnumPath<Region> region = createEnum("region", Region.class);
@@ -49,7 +49,7 @@ public class QRomFile extends RelationalPathBaseEx<RomFile> {
 
     public final StringPath romExt = createString("romExt");
 
-    public final DatePath<Date> romModified = createDate("romModified", Date.class);
+    public final DateTimePath<Date> romModified = createDateTime("romModified", Date.class);
 
     public final NumberPath<Long> length = createNumber("length", long.class);
 
@@ -60,6 +60,8 @@ public class QRomFile extends RelationalPathBaseEx<RomFile> {
     public final SimplePath<Map<String, Object>> medias = createSimple("medias", Map.class);
 
     public final NumberPath<Integer> favorite = createNumber("favorite", int.class);
+
+    public final EnumPath<FileStatus> fileStatus = createEnum("fileStatus", FileStatus.class);
 
     public final DateTimePath<Instant> createTime = createDateTime("createTime", Instant.class);
 

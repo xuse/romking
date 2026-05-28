@@ -4,7 +4,6 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
@@ -23,7 +22,6 @@ import jakarta.annotation.security.PermitAll;
  */
 @Route("rom-search")
 @PageTitle("ROM Search")
-@Menu(order = 3, icon = "vaadin:search", title = "ROM Search")
 @PermitAll
 public class RomSearchView extends Main {
 

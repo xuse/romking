@@ -60,11 +60,22 @@ public class VaadinForms {
 	    field.setAriaLabel(model.getPlaceHolder());
 		return field;
 	}
-	private static Select<String> combo(FormFieldModel model){
-		Select<String> combo=new Select<>();
-		String label = model.getLabel();
-		if (label != null && !label.isEmpty()) {
-			combo.setLabel(label);
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private static Select combo(FormFieldModel model){
+		Select combo=new Select<>();
+		String placeholder = model.getPlaceHolder();
+		if (placeholder == null || placeholder.isEmpty()) {
+			placeholder = model.getLabel();
+		}
+		if (placeholder != null && !placeholder.isEmpty()) {
+			combo.setPlaceholder(placeholder);
+		}
+		combo.setAriaLabel(model.getLabel());
+		// 如果字段类型是枚举，自动填充选项
+		Class<?> fieldType = model.getFieldType();
+		if (fieldType != null && fieldType.isEnum()) {
+			Object[] constants = fieldType.getEnumConstants();
+			combo.setItems(constants);
 		}
 		return combo;
 	}
@@ -81,6 +92,14 @@ public class VaadinForms {
 	}
 	private static NumberField number(FormFieldModel model){
 		NumberField field=new NumberField();
+		String placeholder = model.getPlaceHolder();
+		if (placeholder == null || placeholder.isEmpty()) {
+			placeholder = model.getLabel();
+		}
+		if (placeholder != null && !placeholder.isEmpty()) {
+			field.setPlaceholder(placeholder);
+		}
+		field.setAriaLabel(model.getLabel());
 		return field;
 	}
 	private static TextField hidden(FormFieldModel model){

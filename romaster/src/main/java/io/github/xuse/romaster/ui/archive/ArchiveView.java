@@ -26,7 +26,7 @@ import jakarta.annotation.security.PermitAll;
 
 /**
  * ROM归档视图。
- * 将INSTANCE仓库中的ROM归档到ARCHIVE仓库（基于MD5去重）。
+ * 将INSTANCE仓库中的ROM归档到ARCHIVE仓库（基于MD5去重，含文件复制）。
  */
 @Route("rom-archive")
 @PageTitle("ROM Archive")
@@ -84,20 +84,20 @@ public class ArchiveView extends Main {
 	}
 
 	private void doArchive(ArchiveForm formData) {
-		if (formData.getSourceDirId() <= 0) {
-			Notification.show("请输入源目录ID", 3000, Notification.Position.BOTTOM_END)
+		if (formData.getSourceLabel() == null || formData.getSourceLabel().isBlank()) {
+			Notification.show("请输入源仓库label", 3000, Notification.Position.BOTTOM_END)
 					.addThemeVariants(NotificationVariant.LUMO_ERROR);
 			return;
 		}
-		if (formData.getTargetDirId() <= 0) {
-			Notification.show("请输入目标目录ID", 3000, Notification.Position.BOTTOM_END)
+		if (formData.getTargetLabel() == null || formData.getTargetLabel().isBlank()) {
+			Notification.show("请输入目标仓库label", 3000, Notification.Position.BOTTOM_END)
 					.addThemeVariants(NotificationVariant.LUMO_ERROR);
 			return;
 		}
 
 		try {
 			RomArchiveService archiveService = console.getBean(RomArchiveService.class);
-			archiveService.archive(formData.getSourceDirId(), formData.getTargetDirId());
+			archiveService.archiveByLabel(formData.getSourceLabel(), formData.getTargetLabel());
 			Notification.show("归档任务已提交", 3000, Notification.Position.BOTTOM_END)
 					.addThemeVariants(NotificationVariant.LUMO_SUCCESS);
 			taskGrid.getDataProvider().refreshAll();

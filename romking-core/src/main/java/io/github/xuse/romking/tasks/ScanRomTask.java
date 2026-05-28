@@ -21,13 +21,16 @@ import io.github.xuse.romking.core.Platform;
 import io.github.xuse.romking.metadata.ee.Game;
 import io.github.xuse.romking.metadata.ee.GameListService;
 import io.github.xuse.romking.metadata.ee.Gamelist;
+import io.github.xuse.romking.nointro.DatManageService;
 import io.github.xuse.romking.repo.dal.MediaFileRepository;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
 import io.github.xuse.romking.repo.enums.MediaType;
 import io.github.xuse.romking.repo.enums.RepoType;
 import io.github.xuse.romking.repo.enums.WrapType;
+import io.github.xuse.romking.repo.obj.KnownRom;
 import io.github.xuse.romking.repo.obj.MediaFile;
+import io.github.xuse.romking.repo.obj.QRomFile;
 import io.github.xuse.romking.repo.obj.RomDir;
 import io.github.xuse.romking.repo.obj.RomFile;
 import io.github.xuse.romking.service.RomScanOptions;
@@ -46,15 +49,18 @@ public class ScanRomTask implements Task {
 	private final RomFileRepository romFileRepo;
 	private final MediaFileRepository mediaRepo;
 	private final GameListService gameListService;
+	private final DatManageService datManageService;
 
 	private long begin;
-	private String progress = "";
+	private volatile TaskProgress taskProgress = new TaskProgress("等待开始", 0, 0);
 
 	// 扫描统计
+	private int totalDirs = 0;
 	private int dirCount = 0;
 	private int romCount = 0;
 	private int mediaCount = 0;
 	private int skippedCount = 0;
+	private int matchedCount = 0;
 
 	// 媒体文件扩展名映射
 	private static final Map<String, MediaType> MEDIA_EXT_MAP = new HashMap<>();
@@ -79,13 +85,15 @@ public class ScanRomTask implements Task {
 
 	public ScanRomTask(File rootDir, RomScanOptions options,
 			RomDirRepository romDirRepo, RomFileRepository romFileRepo,
-			MediaFileRepository mediaRepo, GameListService gameListService) {
+			MediaFileRepository mediaRepo, GameListService gameListService,
+			DatManageService datManageService) {
 		this.rootDir = rootDir;
 		this.options = options;
 		this.romDirRepo = romDirRepo;
 		this.romFileRepo = romFileRepo;
 		this.mediaRepo = mediaRepo;
 		this.gameListService = gameListService;
+		this.datManageService = datManageService;
 		Assert.isTrue(rootDir.isDirectory(), "扫描路径必须是目录: " + rootDir);
 	}
 
@@ -100,8 +108,8 @@ public class ScanRomTask implements Task {
 	}
 
 	@Override
-	public String getProgress() {
-		return progress;
+	public TaskProgress getTaskProgress() {
+		return taskProgress;
 	}
 
 	@Override
@@ -114,9 +122,9 @@ public class ScanRomTask implements Task {
 		this.begin = System.currentTimeMillis();
 		try {
 			scanRoot();
-			String msg = String.format("扫描完成: %d个目录, %d个ROM, %d个媒体文件, %d个跳过",
-					dirCount, romCount, mediaCount, skippedCount);
-			progress = msg;
+			String msg = String.format("扫描完成: %d个目录, %d个ROM, %d个媒体文件, %d个跳过, %d个匹配ROM数据库",
+					dirCount, romCount, mediaCount, skippedCount, matchedCount);
+			taskProgress = new TaskProgress(msg, totalDirs, totalDirs);
 			return new ProcessResult(200, msg);
 		} catch (Exception e) {
 			log.error("扫描任务异常", e);
@@ -132,6 +140,13 @@ public class ScanRomTask implements Task {
 		if (subDirs == null) {
 			return;
 		}
+		// 计算有效目录总数（排除隐藏和系统目录）
+		for (File subDir : subDirs) {
+			if (!subDir.getName().startsWith(".") && !subDir.getName().startsWith("_")) {
+				totalDirs++;
+			}
+		}
+		taskProgress = new TaskProgress("开始扫描", 0, totalDirs);
 		for (File subDir : subDirs) {
 			// 跳过隐藏目录和系统目录
 			if (subDir.getName().startsWith(".") || subDir.getName().startsWith("_")) {
@@ -166,7 +181,7 @@ public class ScanRomTask implements Task {
 			return;
 		}
 
-		progress = "正在扫描: " + platformDir.getName();
+		taskProgress = new TaskProgress("正在扫描: " + platformDir.getName(), dirCount, totalDirs);
 
 		// 创建或更新 RomDir 记录
 		RomDir romDir = createOrUpdateRomDir(platformDir, platform);
@@ -200,9 +215,19 @@ public class ScanRomTask implements Task {
 	}
 
 	/**
-	 * 创建或更新RomDir记录
+	 * 创建或查找已有的RomDir记录。
+	 * 增量模式下查找已有记录；非增量模式下总是创建新记录。
 	 */
 	private RomDir createOrUpdateRomDir(File platformDir, Platform platform) {
+		// 增量模式：先查找已有记录
+		if (options.isIncremental()) {
+			List<RomDir> existing = romDirRepo.find(q -> q.where(
+					RomDirRepository.t.label.eq(options.getLabel()),
+					RomDirRepository.t.rootpath.eq(platformDir.getAbsolutePath())));
+			if (!existing.isEmpty()) {
+				return existing.get(0);
+			}
+		}
 		RomDir romDir = new RomDir();
 		romDir.setLabel(options.getLabel());
 		romDir.setPlatform(platform);
@@ -276,6 +301,30 @@ public class ScanRomTask implements Task {
 	private void addRomFile(File file, File baseDir, int dirId,
 			Platform platform, String ext, Map<String, Game> gameMetadata) {
 		String relativePath = getRelativePath(file, baseDir);
+
+		// 增量扫描：检查是否已有记录且文件未变更
+		if (options.isIncremental()) {
+			List<RomFile> existing = romFileRepo.find(q -> q.where(
+					RomFileRepository.dirId.eq(dirId),
+					RomFileRepository.filepath.eq(relativePath)));
+			if (!existing.isEmpty()) {
+				RomFile existingRom = existing.get(0);
+				long fileSize = file.length();
+				long fileModified = file.lastModified();
+				// size + lastModified 一致 → 文件未变更，跳过
+				if (existingRom.getLength() == fileSize
+						&& existingRom.getRomModified() != null
+						&& existingRom.getRomModified().getTime() == fileModified) {
+					skippedCount++;
+					return;
+				}
+				// 文件有变更，删除旧记录后重新入库
+				romFileRepo.getFactory().delete(QRomFile.romFile)
+						.where(QRomFile.romFile.id.eq(existingRom.getId()))
+						.execute();
+			}
+		}
+
 		String normalizedPath = "./" + relativePath.replace('\\', '/');
 
 		// 查找元数据
@@ -317,6 +366,9 @@ public class ScanRomTask implements Task {
 		if (metadata != null) {
 			applyMetadata(romFile, metadata);
 		}
+
+		// 用No-Intro ROM数据库补全信息
+		applyKnownRomInfo(romFile);
 
 		// 默认值
 		if (romFile.getRegion() == null) {
@@ -402,7 +454,7 @@ public class ScanRomTask implements Task {
 	 */
 	private void applyMetadata(RomFile romFile, Game game) {
 		if (game.getName() != null && !game.getName().isBlank()) {
-			romFile.setName(game.getName());
+			romFile.setDisplayName(game.getName());
 		}
 		if (game.getDesc() != null) {
 			romFile.setVersion(game.getDesc().length() > 256
@@ -427,6 +479,64 @@ public class ScanRomTask implements Task {
 		}
 		if (!medias.isEmpty()) {
 			romFile.setMedias(medias);
+		}
+	}
+
+	/**
+	 * 用No-Intro ROM数据库（known_rom表）补全RomFile信息。
+	 * 优先用MD5匹配，其次用CRC+size匹配。
+	 * 
+	 * 匹配成功后：
+	 * - 不覆盖name字段（保留gamelist或文件名来源的中文名）
+	 * - 设置gameid为parentName（游戏家族标识，用于去重和版本管理）
+	 * - 补全region（如果当前为空）
+	 */
+	private void applyKnownRomInfo(RomFile romFile) {
+		if (datManageService == null) return;
+
+		KnownRom known = null;
+
+		// 优先MD5匹配
+		String md5 = romFile.getMd5();
+		if (md5 != null && !md5.isEmpty()) {
+			known = datManageService.findByMd5(md5);
+		}
+
+		// MD5未匹配，尝试CRC+size
+		if (known == null) {
+			String crc = romFile.getCrc();
+			if (crc != null && !crc.isEmpty() && romFile.getLength() > 0) {
+				var candidates = datManageService.findByCrcAndSize(crc, romFile.getLength());
+				if (candidates.size() == 1) {
+					known = candidates.get(0);
+				}
+			}
+		}
+
+		if (known == null) return;
+
+		// 匹配成功
+		matchedCount++;
+
+		// 设置gameid为parentName（游戏家族标识），用于去重和版本关联
+		if (known.getParentName() != null && !known.getParentName().isEmpty()) {
+			romFile.setGameid(known.getParentName());
+		} else if (known.getGameName() != null && !known.getGameName().isEmpty()) {
+			romFile.setGameid(known.getGameName());
+		}
+
+		// 用No-Intro标准名设置name字段
+		String noIntroName = known.getGameName();
+		if (noIntroName != null && !noIntroName.isEmpty()) {
+			String cleanName = noIntroName.replaceAll("\\s*\\([^)]*\\)\\s*", "").trim();
+			if (!cleanName.isEmpty()) {
+				romFile.setName(cleanName);
+			}
+		}
+
+		// 补全region（仅在当前为空时）
+		if (romFile.getRegion() == null && known.getRegion() != null) {
+			romFile.setRegion(known.getRegion());
 		}
 	}
 

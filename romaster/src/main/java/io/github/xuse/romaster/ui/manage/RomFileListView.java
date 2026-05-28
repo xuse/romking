@@ -2,6 +2,7 @@ package io.github.xuse.romaster.ui.manage;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
@@ -9,6 +10,7 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
@@ -23,19 +25,17 @@ import io.github.xuse.jetui.vaadin.support.VaadinForms;
 import io.github.xuse.jetui.vaadin.support.VaadinViews;
 import io.github.xuse.romking.RomConsole;
 import io.github.xuse.romking.repo.dal.MediaFileRepository;
-import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
+import io.github.xuse.romking.repo.enums.FileStatus;
 import io.github.xuse.romking.repo.obj.MediaFile;
-import io.github.xuse.romking.repo.obj.MediaFileFilter;
 import io.github.xuse.romking.repo.obj.QRomFile;
 import io.github.xuse.romking.repo.obj.RomFile;
-import io.github.xuse.romking.repo.obj.RomFileFilter;
-import io.github.xuse.romaster.ui.manage.RomEditForm;
+import io.github.xuse.romking.service.RomVerifyService;
 import jakarta.annotation.security.PermitAll;
 
 /**
  * ROM文件列表视图，按目录ID展示ROM文件和媒体文件（Tab页切换）。
- * 支持Favorite标注和点击编辑ROM信息。
+ * 支持Favorite标注、文件状态展示、点击编辑ROM信息、校验ROM文件。
  */
 @Route("rom-files")
 @PageTitle("ROM Files")
@@ -70,6 +70,17 @@ public class RomFileListView extends Main implements HasUrlParameter<Integer> {
 	private void buildUI() {
 		removeAll();
 
+		// 工具栏
+		HorizontalLayout toolbar = new HorizontalLayout();
+		toolbar.setWidthFull();
+		toolbar.setSpacing(true);
+
+		Button verifyButton = new Button("校验ROM文件", e -> startVerify());
+		verifyButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+		toolbar.add(verifyButton);
+
+		add(toolbar);
+
 		// Tab页
 		Tab romTab = new Tab("ROM文件");
 		Tab mediaTab = new Tab("媒体文件");
@@ -78,6 +89,10 @@ public class RomFileListView extends Main implements HasUrlParameter<Integer> {
 		// ROM文件Grid
 		romGrid = VaadinViews.createGrid(RomFile.class, romFileRepo);
 		romGrid.setSizeFull();
+
+		// 添加文件状态列
+		romGrid.addComponentColumn(this::createStatusBadge)
+				.setHeader("状态").setWidth("80px").setFlexGrow(0);
 
 		// 添加Favorite操作列
 		romGrid.addComponentColumn(romFile -> {
@@ -111,6 +126,69 @@ public class RomFileListView extends Main implements HasUrlParameter<Integer> {
 		});
 
 		add(tabs, romLayout, mediaLayout);
+	}
+
+	/**
+	 * 创建文件状态徽章
+	 */
+	private Span createStatusBadge(RomFile romFile) {
+		FileStatus status = romFile.getFileStatus();
+		if (status == null) {
+			status = FileStatus.OK;
+		}
+		Span badge = new Span();
+		switch (status) {
+			case OK:
+				badge.setText("正常");
+				badge.getElement().getThemeList().add("badge success");
+				break;
+			case MISSING:
+				badge.setText("缺失");
+				badge.getElement().getThemeList().add("badge error");
+				break;
+			case CORRUPTED:
+				badge.setText("损坏");
+				badge.getElement().getThemeList().add("badge contrast");
+				break;
+		}
+		badge.getStyle().set("font-size", "var(--lumo-font-size-xs)");
+		return badge;
+	}
+
+	/**
+	 * 启动校验任务
+	 */
+	private void startVerify() {
+		if (dirId <= 0) {
+			Notification.show("无效的目录ID", 3000, Notification.Position.BOTTOM_END)
+					.addThemeVariants(NotificationVariant.LUMO_ERROR);
+			return;
+		}
+
+		ConfirmDialog dialog = new ConfirmDialog();
+		dialog.setHeader("校验ROM文件");
+		dialog.setText("快速校验：检查文件存在性 + ZIP的CRC校验（不解压，速度快）\n完整校验：检查文件存在性 + MD5完整校验（需解压，更准确）");
+		dialog.setCancelable(true);
+		dialog.setCancelText("取消");
+		dialog.setConfirmText("完整校验");
+		dialog.setConfirmButtonTheme("primary");
+		dialog.setRejectable(true);
+		dialog.setRejectText("快速校验");
+		dialog.addConfirmListener(e -> submitVerify(false));
+		dialog.addRejectListener(e -> submitVerify(true));
+		dialog.open();
+	}
+
+	private void submitVerify(boolean quickMode) {
+		try {
+			RomVerifyService verifyService = console.getBean(RomVerifyService.class);
+			verifyService.verify(dirId, false, quickMode);
+			Notification.show((quickMode ? "快速" : "完整") + "校验任务已提交", 3000, Notification.Position.BOTTOM_END)
+					.addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+		} catch (Exception ex) {
+			Notification.show("提交失败: " + ex.getMessage(), 5000, Notification.Position.BOTTOM_END)
+					.addThemeVariants(NotificationVariant.LUMO_ERROR);
+		}
 	}
 
 	/**

@@ -10,9 +10,9 @@ import lombok.Data;
 @Data
 public class ArchiveForm {
 
-	@FormField(caption = "源目录ID(INSTANCE)", placeHolder = "源目录ID", type = InputType.NUMBER)
-	private int sourceDirId;
+	@FormField(caption = "源仓库(INSTANCE)", placeHolder = "选择源INSTANCE仓库label", type = InputType.TEXT)
+	private String sourceLabel;
 
-	@FormField(caption = "目标目录ID(ARCHIVE)", placeHolder = "目标目录ID", type = InputType.NUMBER)
-	private int targetDirId;
+	@FormField(caption = "目标仓库(ARCHIVE)", placeHolder = "选择目标ARCHIVE仓库label", type = InputType.TEXT)
+	private String targetLabel;
 }

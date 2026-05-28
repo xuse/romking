@@ -26,7 +26,7 @@ import jakarta.annotation.security.PermitAll;
 
 @Route("test-list")
 @PageTitle("Test1")
-@Menu(order = 5, icon = "vaadin:toolbox", title = "表单示例Test List")
+@Menu(order = 91, icon = "vaadin:toolbox", title = "表单示例Test List")
 @PermitAll 
 public class FirstSample extends Main {
 

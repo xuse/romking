@@ -17,7 +17,7 @@ import jakarta.annotation.security.PermitAll;
 
 @Route("test-list2")
 @PageTitle("开发工具")
-@Menu(order = 6, icon = "vaadin:automation", title = "开发工具")
+@Menu(order = 92, icon = "vaadin:automation", title = "开发工具")
 @PermitAll
 public class DevelopTolls extends Main {
 	public DevelopTolls(RomService taskService, RomFileRepository repo,RomConsole console) {

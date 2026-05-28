@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.github.xuse.querydsl.sql.SQLQueryFactory;
 import com.vaadin.flow.component.page.AppShellConfigurator;
+import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.theme.Theme;
 
 import io.github.xuse.romking.RomConsole;
@@ -19,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Theme("default")
+@Push
 @Slf4j
 public class Application implements AppShellConfigurator {
 

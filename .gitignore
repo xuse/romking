@@ -14,3 +14,7 @@ db
 test.txt
 generated/
 node_modules/
+no-intro/
+.jqwik-database
+test-output.txt
+compile_result.txt

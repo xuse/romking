@@ -35,7 +35,9 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 	}
 	
 	public static FormFieldModel of(FormField annotation, Field field) {
-		return of(annotation,field.getName(),field);
+		FormFieldModel model = of(annotation, field.getName(), field);
+		model.setFieldType(field.getType());
+		return model;
 	}
 
 	public static FormFieldModel of(FormField annotation, String name,AnnotatedElement element) {
@@ -222,6 +224,11 @@ public class FormFieldModel implements Comparable<FormFieldModel> {
 	 * 如果为true，说明输入框是Between输入。目前只支持在complextSearch中出现between输入
 	 */
 	private boolean betweenInput;
+
+	/**
+	 * 字段的Java类型（用于枚举等自动填充选项）
+	 */
+	private transient Class<?> fieldType;
 
 	/**
 	 * 输入框之后

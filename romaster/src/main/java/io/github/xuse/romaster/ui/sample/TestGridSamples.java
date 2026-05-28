@@ -18,7 +18,7 @@ import jakarta.annotation.security.PermitAll;
 
 @Route("test-list3")
 @PageTitle("测试样例")
-@Menu(order = 6, icon = "vaadin:piggy-bank", title = "测试样例")
+@Menu(order = 90, icon = "vaadin:piggy-bank", title = "测试样例")
 @PermitAll
 public class TestGridSamples extends Main {
 	

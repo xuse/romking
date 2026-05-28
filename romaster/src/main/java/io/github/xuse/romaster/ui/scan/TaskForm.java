@@ -16,6 +16,9 @@ public class TaskForm {
 	@FormField(caption = "平台", type = InputType.COMBO)
 	private Platform platform;
 
+	@FormField(caption = "增量扫描（跳过未变更文件）", type = InputType.CHECKBOX)
+	private boolean incremental = false;
+
 	@FormField(caption = "扫描无列表目录", type = InputType.CHECKBOX)
 	private boolean scanWithoutGamelist = true;
 
