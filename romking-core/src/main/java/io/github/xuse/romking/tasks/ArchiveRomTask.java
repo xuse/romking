@@ -221,6 +221,7 @@ public class ArchiveRomTask implements Task {
 		copy.setWrapType(source.getWrapType());
 		copy.setGameid(source.getGameid());
 		copy.setName(source.getName());
+		copy.setDisplayName(source.getDisplayName());
 		copy.setGameType(source.getGameType());
 		copy.setRegion(source.getRegion());
 		copy.setZippedFiles(source.getZippedFiles());

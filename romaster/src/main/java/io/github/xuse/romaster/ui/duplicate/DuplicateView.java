@@ -65,7 +65,9 @@ public class DuplicateView extends Main {
 		HorizontalLayout toolbar = new HorizontalLayout();
 		Button refreshBtn = new Button("刷新检测", e -> refreshData());
 		refreshBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		toolbar.add(refreshBtn);
+		Button batchCleanBtn = new Button("批量清理重复", e -> batchCleanDuplicates());
+		batchCleanBtn.addThemeVariants(ButtonVariant.LUMO_ERROR);
+		toolbar.add(refreshBtn, batchCleanBtn);
 		add(toolbar);
 
 		// Tab页
@@ -121,6 +123,35 @@ public class DuplicateView extends Main {
 
 		List<DuplicateGroup> versions = duplicateService.findGameVersions(0);
 		versionGrid.setItems(versions);
+	}
+
+	/**
+	 * 批量清理完全重复的ROM记录。
+	 * 对每组重复（同MD5），保留第一条记录，删除其余记录。
+	 * 仅删除数据库记录，不删除物理文件。
+	 */
+	private void batchCleanDuplicates() {
+		List<DuplicateGroup> exactDups = duplicateService.findExactDuplicates(0);
+		if (exactDups.isEmpty()) {
+			Notification.show("没有发现完全重复的ROM", 3000, Notification.Position.BOTTOM_END);
+			return;
+		}
+
+		ConfirmDialog confirm = new ConfirmDialog();
+		confirm.setHeader("批量清理确认");
+		confirm.setText(String.format("将对 %d 组完全重复的ROM执行清理：每组保留1条记录，删除其余冗余记录。\n" +
+				"仅删除数据库记录，不删除物理文件。\n确认继续？", exactDups.size()));
+		confirm.setCancelable(true);
+		confirm.setConfirmText("确认清理");
+		confirm.setConfirmButtonTheme("error primary");
+		confirm.addConfirmListener(ev -> {
+			int totalDeleted = duplicateService.batchCleanExactDuplicates();
+			Notification.show("批量清理完成，共删除 " + totalDeleted + " 条冗余记录",
+					5000, Notification.Position.BOTTOM_END)
+					.addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+			refreshData();
+		});
+		confirm.open();
 	}
 
 	/**

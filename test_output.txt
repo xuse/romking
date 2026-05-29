@@ -1,0 +1,1440 @@
+﻿[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for io.github.xuse:romaster:jar:1.0.0
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 133, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] --------------------< io.github.xuse:romking-core >---------------------
+[INFO] Building romking-core 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ romking-core ---
+[INFO] Deleting D:\Git\romking\romking-core\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ romking-core ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ romking-core ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 72 source files with javac [debug release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ romking-core ---
+[INFO] skip non existing resourceDirectory D:\Git\romking\romking-core\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ romking-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 13 source files with javac [debug release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ romking-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.github.xuse.romking.service.RomDuplicateServiceTest
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - Using com.github.xuse.querydsl.sql.dialect.H2TemplatesEx as the extension SQLTemplates of current database.
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.tasks]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [tasks.TYPE] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@142269f2
+[main] [INFO] com.github.xuse.querydsl.sql.column.PathMapping - Field private long io.github.xuse.romking.repo.obj.KnownRom.romSize using primitive type to mapping a column in database. Please using {@code @UnsavedValue} or withUnsavePredicate() method to describe it. Otherwise the value like '0' or 'false' will be regarded as a null value.
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.known_rom]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [known_rom.REGION] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@32f232a5
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [known_rom.PLATFORM] is registered to:com.querydsl.sql.types.EnumByNameType@43f82e78
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.media_file]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [media_file.TYPE] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@64b73e7a
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.rom_repo]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_repo.PLATFORM] is registered to:com.querydsl.sql.types.EnumByNameType@2826f61
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_repo.TYPE] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@62727399
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_repo.TAGS] is registered to:com.github.xuse.querydsl.datatype.JSONObjectType@4d9ac0b4
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.rom_file]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.wrapType] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@55dfcc6
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.type] is registered to:com.querydsl.sql.types.EnumByNameType@222eb8aa
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.REGION] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@93cf163
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.PLATFORM] is registered to:com.querydsl.sql.types.EnumByNameType@1852a3ff
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.MEDIAS] is registered to:com.github.xuse.querydsl.datatype.JSONObjectType@7203c7ff
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.file_status] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@25bfcafd
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Entity Class:io.github.xuse.romking.repo.obj.ExportPreset
+[main] [INFO] com.github.xuse.querydsl.lambda.PathCache - Generate dynamic table path for class io.github.xuse.romking.repo.obj.ExportPreset
+[main] [INFO] com.github.xuse.querydsl.sql.column.PathMapping - Field private boolean io.github.xuse.romking.repo.obj.ExportPreset.overwrite using primitive type to mapping a column in database. Please using {@code @UnsavedValue} or withUnsavePredicate() method to describe it. Otherwise the value like '0' or 'false' will be regarded as a null value.
+[main] [INFO] com.github.xuse.querydsl.sql.column.PathMapping - Field private boolean io.github.xuse.romking.repo.obj.ExportPreset.quickExport using primitive type to mapping a column in database. Please using {@code @UnsavedValue} or withUnsavePredicate() method to describe it. Otherwise the value like '0' or 'false' will be regarded as a null value.
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [export_preset.metadata_format] is registered to:com.querydsl.sql.types.EnumByNameType@79351f41
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan query class finish, 6 relations registered.
+[main] [INFO] com.github.xuse.querydsl.sql.SQLQueryFactory - Init QueryDSL Factory(extension) with com.github.xuse.querydsl.sql.dialect.H2TemplatesEx.
+[main] [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[main] [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb_1 user=
+[main] [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[main] [INFO] com.github.xuse.querydsl.sql.dbmeta.DriverInfo - The timestamp is Fri May 29 14:34:50 CST 2026, difference between database and this machine is -5ms.
+[main] [INFO] com.github.xuse.querydsl.sql.dbmeta.MetadataQuerySupport - Database h2 Connected.H2 2.3.232 (2024-08-11) 3 @jdbc:h2:mem:testdb_1
+JDBC Driver:H2 JDBC Driver 2.3.232 (2024-08-11) 3 in TESTDB_1/PUBLIC Isolation=2 CurrentTime=[2026-05-29 14:34:50.216] jvm=17 Charset=GBK Locale=zh_CN Timezone=Asia/Shanghai
+[main] [INFO] SQL - create table QUERYDSL_AUTO_INIT_DATA_LOG (TABLE_NAME varchar(128) NOT NULL  ,
+  IS_DISABLED tinyint NOT NULL DEFAULT 0 ,
+  INIT_RECORDS smallint NOT NULL DEFAULT 0 ,
+  LAST_INIT_TIME timestamp(0)   ,
+  LAST_INIT_USER varchar(128)   ,
+  LAST_INIT_RESULT varchar(400)   ,
+  PRIMARY KEY (TABLE_NAME))
+[main] [INFO] SQL - Records DDL:0, elapsed 19ms.
+[main] [INFO] SQL - COMMENT ON COLUMN QUERYDSL_AUTO_INIT_DATA_LOG.TABLE_NAME IS 'table name. * is a global option to disable data init feature'
+[main] [INFO] SQL - Records DDL:0, elapsed 21ms.
+[main] [INFO] SQL - COMMENT ON COLUMN QUERYDSL_AUTO_INIT_DATA_LOG.IS_DISABLED IS '1-Data init on this table is disabled. 0 - data init enabled.'
+[main] [INFO] SQL - Records DDL:0, elapsed 22ms.
+[main] [INFO] SQL - COMMENT ON COLUMN QUERYDSL_AUTO_INIT_DATA_LOG.INIT_RECORDS IS 'records saved on the last write process.'
+[main] [INFO] SQL - Records DDL:0, elapsed 23ms.
+[main] [INFO] SQL - COMMENT ON TABLE QUERYDSL_AUTO_INIT_DATA_LOG IS 'informations about data initialize by querydsl-sql-extenstion'
+[main] [INFO] SQL - Records DDL:0, elapsed 27ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null querydsl_auto_init_data_log) finished, 5 sqls executed.
+[main] [INFO] com.github.xuse.querydsl.sql.expression.CodecClassGenerator - The codec class com_github_xuse_querydsl_init_DataInitLog_0aTjlf was load.
+[main] [INFO] SQL - select tnt.TABLE_NAME, tnt.IS_DISABLED, tnt.INIT_RECORDS, tnt.LAST_INIT_TIME, tnt.LAST_INIT_USER, tnt.LAST_INIT_RESULT from QUERYDSL_AUTO_INIT_DATA_LOG tnt where tnt.TABLE_NAME = ? limit ?
+  1) tnt.tableName-String: *
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:0, elapsed 3ms.
+[main] [INFO] SQL - insert into QUERYDSL_AUTO_INIT_DATA_LOG (TABLE_NAME, IS_DISABLED, INIT_RECORDS, LAST_INIT_TIME, LAST_INIT_USER, LAST_INIT_RESULT) values (?, ?, ?, ?, ?, ?)
+  1) tnt.tableName-String: *
+  2) tnt.disabled-Integer: 0
+  3) tnt.records-Integer: 0
+  4) tnt.lastInitTime-Date: 2026-05-29 14:34:50
+  5) tnt.lastInitUser-String: 23528@pc-hz20017377(10.15.148.23) OS:windows 10
+  6) tnt.lastInitResult-String: create record
+[main] [INFO] SQL - Records Insert:1, elapsed 2ms.
+[main] [INFO] SQL - select tnt.TABLE_NAME, tnt.IS_DISABLED, tnt.INIT_RECORDS, tnt.LAST_INIT_TIME, tnt.LAST_INIT_USER, tnt.LAST_INIT_RESULT from QUERYDSL_AUTO_INIT_DATA_LOG tnt where tnt.TABLE_NAME = ? limit ?
+  1) tnt.tableName-String: lock#table_initialize
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:0, elapsed 0ms.
+[main] [INFO] SQL - insert into QUERYDSL_AUTO_INIT_DATA_LOG (TABLE_NAME, INIT_RECORDS, IS_DISABLED, LAST_INIT_USER, LAST_INIT_TIME, LAST_INIT_RESULT) values (?, ?, 2, ?, ?, ?)
+  1) tnt.tableName-String: lock#table_initialize
+  2) tnt.records-Integer: 0
+  3) tnt.lastInitUser-String: pc-hz20017377(10.15.148.23) OS:windows 10
+  4) tnt.lastInitTime-Date: 2026-05-29 14:34:50
+  5) tnt.lastInitResult-String: Processing
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] com.github.xuse.querydsl.sql.support.DbLockImpl - [LOCK Obtained] lock#table_initialize
+[main] [INFO] SQL - create table TASKS (ID int NOT NULL   auto_increment,
+  TYPE int   ,
+  NAME varchar(128) NOT NULL  ,
+  TASK_BEGIN timestamp(0) NOT NULL  ,
+  TASK_END timestamp(0) NOT NULL  ,
+  TASK_COST varchar(16)   ,
+  TASK_RESULT varchar(5000)   ,
+  TASK_CODE int NOT NULL  ,
+  PRIMARY KEY (ID))
+[main] [INFO] SQL - Records DDL:0, elapsed 14ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null tasks) finished, 1 sqls executed.
+[main] [INFO] SQL - create table KNOWN_ROM (ID int NOT NULL   auto_increment,
+  MD5 char(32)   ,
+  CRC char(8)   ,
+  SHA1 char(40)   ,
+  ROMSIZE bigint NOT NULL DEFAULT 0 ,
+  GAMENAME varchar(256) NOT NULL  ,
+  ROMFILENAME varchar(256) NOT NULL  ,
+  PARENTNAME varchar(256)   ,
+  REGION tinyint   ,
+  PLATFORM varchar(14) NOT NULL  ,
+  SOURCE varchar(32) NOT NULL DEFAULT 'No-Intro' ,
+  DATVERSION varchar(32)   ,
+  PRIMARY KEY (ID),
+  CONSTRAINT IDX_KNOWN_ROM_395057752 UNIQUE (MD5))
+[main] [INFO] SQL - Records DDL:0, elapsed 3ms.
+[main] [INFO] SQL - CREATE INDEX IDX_KNOWN_ROM_1357586287 ON KNOWN_ROM (CRC, ROMSIZE)
+[main] [INFO] SQL - Records DDL:0, elapsed 4ms.
+[main] [INFO] SQL - CREATE INDEX IDX_KNOWN_ROM_1589380358 ON KNOWN_ROM (PLATFORM, PARENTNAME)
+[main] [INFO] SQL - Records DDL:0, elapsed 6ms.
+[main] [INFO] SQL - CREATE INDEX IDX_KNOWN_ROM_1078095901 ON KNOWN_ROM (SHA1)
+[main] [INFO] SQL - Records DDL:0, elapsed 8ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null known_rom) finished, 4 sqls executed.
+[main] [INFO] SQL - create table MEDIA_FILE (ID bigint NOT NULL   auto_increment,
+  DIRID int NOT NULL  ,
+  FILE_PATH varchar(256) NOT NULL  ,
+  REF_COUNT smallint NOT NULL  ,
+  EXT varchar(8) NOT NULL  ,
+  TYPE tinyint   ,
+  MD5 char(32) NOT NULL DEFAULT '' ,
+  PRIMARY KEY (ID),
+  CONSTRAINT IDX_MEDIA_FILE_385586662 UNIQUE (DIRID, FILE_PATH))
+[main] [INFO] SQL - Records DDL:0, elapsed 4ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null media_file) finished, 1 sqls executed.
+[main] [INFO] SQL - create table ROM_REPO (ID int NOT NULL   auto_increment,
+  LABEL varchar(64)   ,
+  PLATFORM varchar(10) NOT NULL  ,
+  ROOTPATH varchar(256) NOT NULL  ,
+  DESCRIPTION varchar(64) NOT NULL DEFAULT '' ,
+  TYPE tinyint NOT NULL  ,
+  CREATETIME timestamp(0) NOT NULL  ,
+  LASTSCAN timestamp(0)   ,
+  TAGS varchar(64)   ,
+  PRIMARY KEY (ID),
+  CONSTRAINT IDX_ROM_REPO_1699434830 UNIQUE (LABEL, ROOTPATH))
+[main] [INFO] SQL - Records DDL:0, elapsed 1ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_REPO_962406151 ON ROM_REPO (LABEL, PLATFORM)
+[main] [INFO] SQL - Records DDL:0, elapsed 2ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null rom_repo) finished, 2 sqls executed.
+[main] [INFO] SQL - create table ROM_FILE (DIRID int NOT NULL  ,
+  ID int NOT NULL   auto_increment,
+  FILE_PATH varchar(256) NOT NULL  ,
+  WRAPTYPE tinyint NOT NULL  ,
+  GAMEID varchar(64) NOT NULL DEFAULT '' ,
+  NAME varchar(128) NOT NULL DEFAULT '' ,
+  DISPLAY_NAME varchar(128)   ,
+  TYPE varchar(8)   ,
+  REGION tinyint NOT NULL  ,
+  ZIPPED_FILES int NOT NULL  ,
+  VERSION varchar(256)   ,
+  HACK varchar(256)   ,
+  PLATFORM varchar(14) NOT NULL  ,
+  ROM_NAME varchar(256) NOT NULL  ,
+  ROM_EXT varchar(10) NOT NULL  ,
+  ROM_MODIFY timestamp(0) NOT NULL  ,
+  ROM_LEN bigint NOT NULL DEFAULT 0 ,
+  CRC char(8)   ,
+  MD5 char(32)   ,
+  MEDIAS varchar(1400)   ,
+  FAV tinyint NOT NULL DEFAULT 0 ,
+  FILE_STATUS tinyint NOT NULL DEFAULT 0 ,
+  CREATETIME timestamp(0) NOT NULL  ,
+  PRIMARY KEY (ID))
+[main] [INFO] SQL - Records DDL:0, elapsed 4ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_FILE_1709537714 ON ROM_FILE (NAME)
+[main] [INFO] SQL - Records DDL:0, elapsed 5ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_FILE_709270774 ON ROM_FILE (DIRID, ROM_NAME)
+[main] [INFO] SQL - Records DDL:0, elapsed 8ms.
+[main] [INFO] SQL - CREATE INDEX IDX_GLOBAL_ROM_MD5 ON ROM_FILE (MD5, ROM_LEN)
+[main] [INFO] SQL - Records DDL:0, elapsed 9ms.
+[main] [INFO] SQL - CREATE INDEX IDX_GLOBAL_ROM_CRC ON ROM_FILE (CRC, ROM_LEN)
+[main] [INFO] SQL - Records DDL:0, elapsed 10ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_FILE_508506570 ON ROM_FILE (GAMEID)
+[main] [INFO] SQL - Records DDL:0, elapsed 11ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null rom_file) finished, 6 sqls executed.
+[main] [INFO] SQL - create table EXPORT_PRESET (ID int NOT NULL   auto_increment,
+  NAME varchar(64) NOT NULL  ,
+  SOURCE_LABEL varchar(64) NOT NULL  ,
+  TARGET_PATH varchar(256) NOT NULL  ,
+  TARGET_LABEL varchar(64)   ,
+  IS_OVERWRITE boolean NOT NULL DEFAULT false ,
+  IS_QUICK_EXPORT boolean NOT NULL DEFAULT false ,
+  METADATA_FORMAT varchar(16) NOT NULL DEFAULT 'EMUELEC' ,
+  CREATETIME timestamp(0) NOT NULL  ,
+  PRIMARY KEY (ID))
+[main] [INFO] SQL - Records DDL:0, elapsed 4ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null export_preset) finished, 1 sqls executed.
+[main] [INFO] SQL - update QUERYDSL_AUTO_INIT_DATA_LOG
+set IS_DISABLED = 0, LAST_INIT_USER = ?, LAST_INIT_TIME = ?, LAST_INIT_RESULT = ? where QUERYDSL_AUTO_INIT_DATA_LOG.TABLE_NAME = ? and QUERYDSL_AUTO_INIT_DATA_LOG.IS_DISABLED = ?
+  1) tnt.lastInitUser-String: 
+  2) tnt.lastInitTime-Date: 2026-05-29 14:34:50
+  3) tnt.lastInitResult-String: Unlocked
+  4) tnt.tableName-String: lock#table_initialize
+  5) tnt.disabled-Integer: 2
+[main] [INFO] SQL - Records Updated:1, elapsed 2ms.
+[main] [INFO] com.github.xuse.querydsl.init.InitProcessor - [Init Processor] Database schema init process finished. 6 task processed.
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.metadata.ee.GameListService]:io.github.xuse.romking.metadata.ee.GameListService@78b236a0
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.nointro.DatImportService]:io.github.xuse.romking.nointro.DatImportService@435ce306
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.nointro.DatManageService]:io.github.xuse.romking.nointro.DatManageService@7dc51783
+[main] [WARN] com.github.xuse.querydsl.repository.GenericRepository - Query Class not found io.github.xuse.romking.repo.obj.QExportPreset, will generate a dynanamic model.
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.ExportPresetRepository]:io.github.xuse.romking.repo.dal.ExportPresetRepository@75699e35
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.KnownRomRepository]:io.github.xuse.romking.repo.dal.KnownRomRepository@66d57c1b
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.MediaFileRepository]:io.github.xuse.romking.repo.dal.MediaFileRepository@36074e47
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.RomDirRepository]:io.github.xuse.romking.repo.dal.RomDirRepository@7dcc91fd
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.RomFileRepository]:io.github.xuse.romking.repo.dal.RomFileRepository@1bd81830
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.GlobalTaskService]:io.github.xuse.romking.service.GlobalTaskService@4beddc56
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomArchiveService]:io.github.xuse.romking.service.RomArchiveService@1b812421
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomDuplicateService]:io.github.xuse.romking.service.RomDuplicateService@7882c44a
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomExportService]:io.github.xuse.romking.service.RomExportService@20d11153
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomImportService]:io.github.xuse.romking.service.RomImportService@5649ec46
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomMngService]:io.github.xuse.romking.service.RomMngService@55120f99
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomVerifyService]:io.github.xuse.romking.service.RomVerifyService@38f2e97e
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatImportService.knownRomRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.gameListService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.gameListService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.datManageService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomDuplicateService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomVerifyService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomVerifyService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomVerifyService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.GlobalTaskService.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatManageService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatManageService.importService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatManageService.knownRomRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] com.github.xuse.querydsl.sql.expression.CodecClassGenerator - The codec class io_github_xuse_romking_repo_obj_RomDir_0uvOei was load.
+[main] [INFO] SQL - insert into ROM_REPO (LABEL, PLATFORM, ROOTPATH, DESCRIPTION, TYPE, CREATETIME) values (?, ?, ?, ?, ?, current_timestamp)
+  1) rom.label-String: dup-test
+  2) rom.platform-Platform: GBA
+  3) rom.rootpath-String: /tmp/dup-test
+  4) rom.description-String: 测试重复检测
+  5) rom.type-RepoType: ARCHIVE
+[main] [INFO] SQL - Records Insert:1, elapsed 3ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ?
+  1) rom.label-String: dup-test
+[main] [INFO] SQL - Records Fetch:1, elapsed 1ms.
+[main] [INFO] com.github.xuse.querydsl.sql.expression.CodecClassGenerator - The codec class io_github_xuse_romking_repo_obj_RomFile_1YZk9g was load.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game-a-1.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: mario-family
+  5) rom.name-String: Super Mario
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: game-a-1.zip
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:50
+  12) rom.length-Long: 1024
+  13) rom.md5-String: aabbccdd11223344aabbccdd11223344
+  14) rom.favorite-Integer: 0
+  15) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game-a-2.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: mario-family
+  5) rom.name-String: Super Mario
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: game-a-2.zip
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:50
+  12) rom.length-Long: 1024
+  13) rom.md5-String: aabbccdd11223344aabbccdd11223344
+  14) rom.favorite-Integer: 0
+  15) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 2ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game-a-3.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: mario-family
+  5) rom.name-String: Super Mario
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: game-a-3.zip
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:50
+  12) rom.length-Long: 1024
+  13) rom.md5-String: aabbccdd11223344aabbccdd11223344
+  14) rom.favorite-Integer: 0
+  15) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: zelda-usa.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: zelda-family
+  5) rom.name-String: Zelda (USA)
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: zelda-usa.zip
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:50
+  12) rom.length-Long: 1024
+  13) rom.md5-String: 11111111111111111111111111111111
+  14) rom.favorite-Integer: 0
+  15) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 2ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: zelda-jpn.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: zelda-family
+  5) rom.name-String: Zelda (JPN)
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: zelda-jpn.zip
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:50
+  12) rom.length-Long: 1024
+  13) rom.md5-String: 22222222222222222222222222222222
+  14) rom.favorite-Integer: 0
+  15) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: unique-game.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: unique-id
+  5) rom.name-String: Unique Game
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: unique-game.zip
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:50
+  12) rom.length-Long: 1024
+  13) rom.md5-String: 99999999999999999999999999999999
+  14) rom.favorite-Integer: 0
+  15) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.MD5, rom.NAME, rom.PLATFORM, count(rom.MD5) from ROM_FILE rom where rom.MD5 is not null and rom.MD5 != ? group by rom.MD5 having count(rom.MD5) > ? order by count(rom.MD5) desc limit ?
+  1) rom.md5-String: 
+  2) ?-Long: 1
+  3) ?-Long: 200
+[main] [INFO] SQL - Records Fetch:1, elapsed 5ms.
+[main] [INFO] SQL - select rom.GAMEID, rom.NAME, rom.PLATFORM, count(rom.GAMEID) from ROM_FILE rom where rom.GAMEID is not null and rom.GAMEID != ? group by rom.GAMEID having count(rom.GAMEID) > ? order by count(rom.GAMEID) desc limit ?
+  1) rom.gameid-String: 
+  2) ?-Long: 1
+  3) ?-Long: 200
+[main] [ERROR] SQL - select rom.GAMEID, rom.NAME, rom.PLATFORM, count(rom.GAMEID) from ROM_FILE rom where rom.GAMEID is not null and rom.GAMEID != ? group by rom.GAMEID having count(rom.GAMEID) > ? order by count(rom.GAMEID) desc limit ?
+  1) rom.gameid-String: 
+  2) ?-Long: 1
+  3) ?-Long: 200
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ROM.NAME" must be in the GROUP BY list; SQL statement:
+select rom.GAMEID, rom.NAME, rom.PLATFORM, count(rom.GAMEID) from ROM_FILE rom where rom.GAMEID is not null and rom.GAMEID != ? group by rom.GAMEID having count(rom.GAMEID) > ? order by count(rom.GAMEID) desc limit ? [90016-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:266)
+	at org.h2.command.query.Select.updateAgg(Select.java:542)
+	at org.h2.command.query.Select$LazyResultGroupSorted.fetchNextRow(Select.java:1976)
+	at org.h2.result.LazyResult.hasNext(LazyResult.java:78)
+	at org.h2.result.FetchedResult.next(FetchedResult.java:34)
+	at org.h2.command.query.Select.queryGroupSorted(Select.java:323)
+	at org.h2.command.query.Select.queryWithoutCache(Select.java:884)
+	at org.h2.command.query.Query.queryWithoutCacheLazyCheck(Query.java:211)
+	at org.h2.command.query.Query.query(Query.java:530)
+	at org.h2.command.query.Query.query(Query.java:498)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:222)
+	at org.h2.command.Command.executeQuery(Command.java:196)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:130)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at com.github.xuse.querydsl.sql.SQLQueryAlter.fetch(SQLQueryAlter.java:265)
+	at com.github.xuse.querydsl.sql.SQLQueryAlter.fetch(SQLQueryAlter.java:240)
+	at io.github.xuse.romking.service.RomDuplicateService.findGameVersions(RomDuplicateService.java:92)
+	at io.github.xuse.romking.service.RomDuplicateServiceTest.testFindGameVersions(RomDuplicateServiceTest.java:91)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[main] [ERROR] SQL - select rom.GAMEID, rom.NAME, rom.PLATFORM, count(rom.GAMEID) from ROM_FILE rom where rom.GAMEID is not null and rom.GAMEID != ? group by rom.GAMEID having count(rom.GAMEID) > ? order by count(rom.GAMEID) desc limit ?
+  1) rom.gameid-String: 
+  2) ?-Long: 1
+  3) ?-Long: 200
+com.querydsl.core.QueryException: Caught JdbcSQLSyntaxErrorException for select rom.GAMEID, rom.NAME, rom.PLATFORM, count(rom.GAMEID) from ROM_FILE rom where rom.GAMEID is not null and rom.GAMEID != ? group by rom.GAMEID having count(rom.GAMEID) > ? order by count(rom.GAMEID) desc limit ?
+	at com.querydsl.sql.DefaultSQLExceptionTranslator.translate(DefaultSQLExceptionTranslator.java:50)
+	at com.querydsl.sql.Configuration.translate(Configuration.java:507)
+	at com.github.xuse.querydsl.sql.SQLQueryAlter.fetch(SQLQueryAlter.java:276)
+	at com.github.xuse.querydsl.sql.SQLQueryAlter.fetch(SQLQueryAlter.java:240)
+	at io.github.xuse.romking.service.RomDuplicateService.findGameVersions(RomDuplicateService.java:92)
+	at io.github.xuse.romking.service.RomDuplicateServiceTest.testFindGameVersions(RomDuplicateServiceTest.java:91)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ROM.NAME" must be in the GROUP BY list; SQL statement:
+select rom.GAMEID, rom.NAME, rom.PLATFORM, count(rom.GAMEID) from ROM_FILE rom where rom.GAMEID is not null and rom.GAMEID != ? group by rom.GAMEID having count(rom.GAMEID) > ? order by count(rom.GAMEID) desc limit ? [90016-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:266)
+	at org.h2.command.query.Select.updateAgg(Select.java:542)
+	at org.h2.command.query.Select$LazyResultGroupSorted.fetchNextRow(Select.java:1976)
+	at org.h2.result.LazyResult.hasNext(LazyResult.java:78)
+	at org.h2.result.FetchedResult.next(FetchedResult.java:34)
+	at org.h2.command.query.Select.queryGroupSorted(Select.java:323)
+	at org.h2.command.query.Select.queryWithoutCache(Select.java:884)
+	at org.h2.command.query.Query.queryWithoutCacheLazyCheck(Query.java:211)
+	at org.h2.command.query.Query.query(Query.java:530)
+	at org.h2.command.query.Query.query(Query.java:498)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:222)
+	at org.h2.command.Command.executeQuery(Command.java:196)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:130)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at com.github.xuse.querydsl.sql.SQLQueryAlter.fetch(SQLQueryAlter.java:265)
+	... 74 more
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.MD5 = ?
+  1) rom.md5-String: aabbccdd11223344aabbccdd11223344
+[main] [INFO] SQL - Records Fetch:3, elapsed 1ms.
+[main] [INFO] SQL - select rom.MD5, rom.NAME, rom.PLATFORM, count(rom.MD5) from ROM_FILE rom where rom.MD5 is not null and rom.MD5 != ? group by rom.MD5 having count(rom.MD5) > ? order by count(rom.MD5) desc limit ?
+  1) rom.md5-String: 
+  2) ?-Long: 1
+  3) ?-Long: 200
+[main] [INFO] SQL - Records Fetch:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.MD5 = ?
+  1) rom.md5-String: aabbccdd11223344aabbccdd11223344
+[main] [INFO] SQL - Records Fetch:3, elapsed 2ms.
+[main] [INFO] SQL - delete from ROM_FILE where ROM_FILE.ID in (?, ?)
+  1) rom.id-Integer: 2
+  2) rom.id-Integer: 3
+[main] [INFO] SQL - Records Deleted:2, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.MD5 = ?
+  1) rom.md5-String: aabbccdd11223344aabbccdd11223344
+[main] [INFO] SQL - Records Fetch:1, elapsed 8ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.GAMEID = ?
+  1) rom.gameid-String: zelda-family
+[main] [INFO] SQL - Records Fetch:2, elapsed 2ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: temp-delete.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: temp-id
+  5) rom.name-String: Temp
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: temp-delete.zip
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:50
+  12) rom.length-Long: 1024
+  13) rom.md5-String: ffffffffffffffffffffffffffffffff
+  14) rom.favorite-Integer: 0
+  15) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - delete from ROM_FILE where ROM_FILE.ID = ?
+  1) rom.id-Integer: 0
+[main] [INFO] SQL - Records Deleted:0, elapsed 2ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.ID = ?
+  1) rom.id-Integer: 0
+[main] [INFO] SQL - Records Fetch:0, elapsed 1ms.
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.218 s -- in io.github.xuse.romking.service.RomDuplicateServiceTest
+[INFO] Running io.github.xuse.romking.tasks.ScanArchiveExportIntegrationTest
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - Using com.github.xuse.querydsl.sql.dialect.H2TemplatesEx as the extension SQLTemplates of current database.
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.tasks]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [tasks.TYPE] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@142269f2
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.known_rom]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [known_rom.REGION] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@32f232a5
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [known_rom.PLATFORM] is registered to:com.querydsl.sql.types.EnumByNameType@43f82e78
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.media_file]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [media_file.TYPE] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@64b73e7a
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.rom_repo]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_repo.PLATFORM] is registered to:com.querydsl.sql.types.EnumByNameType@2826f61
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_repo.TYPE] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@62727399
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_repo.TAGS] is registered to:com.github.xuse.querydsl.datatype.JSONObjectType@4d9ac0b4
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Query Class:[null.rom_file]
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.wrapType] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@55dfcc6
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.type] is registered to:com.querydsl.sql.types.EnumByNameType@222eb8aa
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.REGION] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@93cf163
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.PLATFORM] is registered to:com.querydsl.sql.types.EnumByNameType@1852a3ff
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.MEDIAS] is registered to:com.github.xuse.querydsl.datatype.JSONObjectType@7203c7ff
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [rom_file.file_status] is registered to:com.github.xuse.querydsl.types.EnumByCodeType@25bfcafd
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan Entity Class:io.github.xuse.romking.repo.obj.ExportPreset
+[main] [INFO] com.github.xuse.querydsl.config.ConfigurationEx - [CustomType] column [export_preset.metadata_format] is registered to:com.querydsl.sql.types.EnumByNameType@79351f41
+[main] [INFO] com.github.xuse.querydsl.config.ScanContext - Scan query class finish, 6 relations registered.
+[main] [INFO] com.github.xuse.querydsl.sql.SQLQueryFactory - Init QueryDSL Factory(extension) with com.github.xuse.querydsl.sql.dialect.H2TemplatesEx.
+[main] [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+[main] [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb_2 user=
+[main] [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+[main] [INFO] com.github.xuse.querydsl.sql.dbmeta.DriverInfo - The timestamp is Fri May 29 14:34:51 CST 2026, difference between database and this machine is 0ms.
+[main] [INFO] com.github.xuse.querydsl.sql.dbmeta.MetadataQuerySupport - Database h2 Connected.H2 2.3.232 (2024-08-11) 3 @jdbc:h2:mem:testdb_2
+JDBC Driver:H2 JDBC Driver 2.3.232 (2024-08-11) 3 in TESTDB_2/PUBLIC Isolation=2 CurrentTime=[2026-05-29 14:34:51.064] jvm=17 Charset=GBK Locale=zh_CN Timezone=Asia/Shanghai
+[main] [INFO] SQL - create table QUERYDSL_AUTO_INIT_DATA_LOG (TABLE_NAME varchar(128) NOT NULL  ,
+  IS_DISABLED tinyint NOT NULL DEFAULT 0 ,
+  INIT_RECORDS smallint NOT NULL DEFAULT 0 ,
+  LAST_INIT_TIME timestamp(0)   ,
+  LAST_INIT_USER varchar(128)   ,
+  LAST_INIT_RESULT varchar(400)   ,
+  PRIMARY KEY (TABLE_NAME))
+[main] [INFO] SQL - Records DDL:0, elapsed 1ms.
+[main] [INFO] SQL - COMMENT ON COLUMN QUERYDSL_AUTO_INIT_DATA_LOG.TABLE_NAME IS 'table name. * is a global option to disable data init feature'
+[main] [INFO] SQL - Records DDL:0, elapsed 1ms.
+[main] [INFO] SQL - COMMENT ON COLUMN QUERYDSL_AUTO_INIT_DATA_LOG.IS_DISABLED IS '1-Data init on this table is disabled. 0 - data init enabled.'
+[main] [INFO] SQL - Records DDL:0, elapsed 2ms.
+[main] [INFO] SQL - COMMENT ON COLUMN QUERYDSL_AUTO_INIT_DATA_LOG.INIT_RECORDS IS 'records saved on the last write process.'
+[main] [INFO] SQL - Records DDL:0, elapsed 2ms.
+[main] [INFO] SQL - COMMENT ON TABLE QUERYDSL_AUTO_INIT_DATA_LOG IS 'informations about data initialize by querydsl-sql-extenstion'
+[main] [INFO] SQL - Records DDL:0, elapsed 2ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null querydsl_auto_init_data_log) finished, 5 sqls executed.
+[main] [INFO] SQL - select tnt.TABLE_NAME, tnt.IS_DISABLED, tnt.INIT_RECORDS, tnt.LAST_INIT_TIME, tnt.LAST_INIT_USER, tnt.LAST_INIT_RESULT from QUERYDSL_AUTO_INIT_DATA_LOG tnt where tnt.TABLE_NAME = ? limit ?
+  1) tnt.tableName-String: *
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:0, elapsed 0ms.
+[main] [INFO] SQL - insert into QUERYDSL_AUTO_INIT_DATA_LOG (TABLE_NAME, IS_DISABLED, INIT_RECORDS, LAST_INIT_TIME, LAST_INIT_USER, LAST_INIT_RESULT) values (?, ?, ?, ?, ?, ?)
+  1) tnt.tableName-String: *
+  2) tnt.disabled-Integer: 0
+  3) tnt.records-Integer: 0
+  4) tnt.lastInitTime-Date: 2026-05-29 14:34:51
+  5) tnt.lastInitUser-String: 23528@pc-hz20017377(10.15.148.23) OS:windows 10
+  6) tnt.lastInitResult-String: create record
+[main] [INFO] SQL - Records Insert:1, elapsed 0ms.
+[main] [INFO] SQL - select tnt.TABLE_NAME, tnt.IS_DISABLED, tnt.INIT_RECORDS, tnt.LAST_INIT_TIME, tnt.LAST_INIT_USER, tnt.LAST_INIT_RESULT from QUERYDSL_AUTO_INIT_DATA_LOG tnt where tnt.TABLE_NAME = ? limit ?
+  1) tnt.tableName-String: lock#table_initialize
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:0, elapsed 0ms.
+[main] [INFO] SQL - insert into QUERYDSL_AUTO_INIT_DATA_LOG (TABLE_NAME, INIT_RECORDS, IS_DISABLED, LAST_INIT_USER, LAST_INIT_TIME, LAST_INIT_RESULT) values (?, ?, 2, ?, ?, ?)
+  1) tnt.tableName-String: lock#table_initialize
+  2) tnt.records-Integer: 0
+  3) tnt.lastInitUser-String: pc-hz20017377(10.15.148.23) OS:windows 10
+  4) tnt.lastInitTime-Date: 2026-05-29 14:34:51
+  5) tnt.lastInitResult-String: Processing
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] com.github.xuse.querydsl.sql.support.DbLockImpl - [LOCK Obtained] lock#table_initialize
+[main] [INFO] SQL - create table TASKS (ID int NOT NULL   auto_increment,
+  TYPE int   ,
+  NAME varchar(128) NOT NULL  ,
+  TASK_BEGIN timestamp(0) NOT NULL  ,
+  TASK_END timestamp(0) NOT NULL  ,
+  TASK_COST varchar(16)   ,
+  TASK_RESULT varchar(5000)   ,
+  TASK_CODE int NOT NULL  ,
+  PRIMARY KEY (ID))
+[main] [INFO] SQL - Records DDL:0, elapsed 4ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null tasks) finished, 1 sqls executed.
+[main] [INFO] SQL - create table KNOWN_ROM (ID int NOT NULL   auto_increment,
+  MD5 char(32)   ,
+  CRC char(8)   ,
+  SHA1 char(40)   ,
+  ROMSIZE bigint NOT NULL DEFAULT 0 ,
+  GAMENAME varchar(256) NOT NULL  ,
+  ROMFILENAME varchar(256) NOT NULL  ,
+  PARENTNAME varchar(256)   ,
+  REGION tinyint   ,
+  PLATFORM varchar(14) NOT NULL  ,
+  SOURCE varchar(32) NOT NULL DEFAULT 'No-Intro' ,
+  DATVERSION varchar(32)   ,
+  PRIMARY KEY (ID),
+  CONSTRAINT IDX_KNOWN_ROM_2000149394 UNIQUE (MD5))
+[main] [INFO] SQL - Records DDL:0, elapsed 3ms.
+[main] [INFO] SQL - CREATE INDEX IDX_KNOWN_ROM_1314235449 ON KNOWN_ROM (CRC, ROMSIZE)
+[main] [INFO] SQL - Records DDL:0, elapsed 5ms.
+[main] [INFO] SQL - CREATE INDEX IDX_KNOWN_ROM_1298704017 ON KNOWN_ROM (PLATFORM, PARENTNAME)
+[main] [INFO] SQL - Records DDL:0, elapsed 6ms.
+[main] [INFO] SQL - CREATE INDEX IDX_KNOWN_ROM_361313317 ON KNOWN_ROM (SHA1)
+[main] [INFO] SQL - Records DDL:0, elapsed 7ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null known_rom) finished, 4 sqls executed.
+[main] [INFO] SQL - create table MEDIA_FILE (ID bigint NOT NULL   auto_increment,
+  DIRID int NOT NULL  ,
+  FILE_PATH varchar(256) NOT NULL  ,
+  REF_COUNT smallint NOT NULL  ,
+  EXT varchar(8) NOT NULL  ,
+  TYPE tinyint   ,
+  MD5 char(32) NOT NULL DEFAULT '' ,
+  PRIMARY KEY (ID),
+  CONSTRAINT IDX_MEDIA_FILE_1196459984 UNIQUE (DIRID, FILE_PATH))
+[main] [INFO] SQL - Records DDL:0, elapsed 6ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null media_file) finished, 1 sqls executed.
+[main] [INFO] SQL - create table ROM_REPO (ID int NOT NULL   auto_increment,
+  LABEL varchar(64)   ,
+  PLATFORM varchar(10) NOT NULL  ,
+  ROOTPATH varchar(256) NOT NULL  ,
+  DESCRIPTION varchar(64) NOT NULL DEFAULT '' ,
+  TYPE tinyint NOT NULL  ,
+  CREATETIME timestamp(0) NOT NULL  ,
+  LASTSCAN timestamp(0)   ,
+  TAGS varchar(64)   ,
+  PRIMARY KEY (ID),
+  CONSTRAINT IDX_ROM_REPO_556364405 UNIQUE (LABEL, ROOTPATH))
+[main] [INFO] SQL - Records DDL:0, elapsed 6ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_REPO_1218318586 ON ROM_REPO (LABEL, PLATFORM)
+[main] [INFO] SQL - Records DDL:0, elapsed 7ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null rom_repo) finished, 2 sqls executed.
+[main] [INFO] SQL - create table ROM_FILE (DIRID int NOT NULL  ,
+  ID int NOT NULL   auto_increment,
+  FILE_PATH varchar(256) NOT NULL  ,
+  WRAPTYPE tinyint NOT NULL  ,
+  GAMEID varchar(64) NOT NULL DEFAULT '' ,
+  NAME varchar(128) NOT NULL DEFAULT '' ,
+  DISPLAY_NAME varchar(128)   ,
+  TYPE varchar(8)   ,
+  REGION tinyint NOT NULL  ,
+  ZIPPED_FILES int NOT NULL  ,
+  VERSION varchar(256)   ,
+  HACK varchar(256)   ,
+  PLATFORM varchar(14) NOT NULL  ,
+  ROM_NAME varchar(256) NOT NULL  ,
+  ROM_EXT varchar(10) NOT NULL  ,
+  ROM_MODIFY timestamp(0) NOT NULL  ,
+  ROM_LEN bigint NOT NULL DEFAULT 0 ,
+  CRC char(8)   ,
+  MD5 char(32)   ,
+  MEDIAS varchar(1400)   ,
+  FAV tinyint NOT NULL DEFAULT 0 ,
+  FILE_STATUS tinyint NOT NULL DEFAULT 0 ,
+  CREATETIME timestamp(0) NOT NULL  ,
+  PRIMARY KEY (ID))
+[main] [INFO] SQL - Records DDL:0, elapsed 14ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_FILE_2002517958 ON ROM_FILE (NAME)
+[main] [INFO] SQL - Records DDL:0, elapsed 15ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_FILE_300782623 ON ROM_FILE (DIRID, ROM_NAME)
+[main] [INFO] SQL - Records DDL:0, elapsed 15ms.
+[main] [INFO] SQL - CREATE INDEX IDX_GLOBAL_ROM_MD5 ON ROM_FILE (MD5, ROM_LEN)
+[main] [INFO] SQL - Records DDL:0, elapsed 17ms.
+[main] [INFO] SQL - CREATE INDEX IDX_GLOBAL_ROM_CRC ON ROM_FILE (CRC, ROM_LEN)
+[main] [INFO] SQL - Records DDL:0, elapsed 20ms.
+[main] [INFO] SQL - CREATE INDEX IDX_ROM_FILE_2142438392 ON ROM_FILE (GAMEID)
+[main] [INFO] SQL - Records DDL:0, elapsed 21ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null rom_file) finished, 6 sqls executed.
+[main] [INFO] SQL - create table EXPORT_PRESET (ID int NOT NULL   auto_increment,
+  NAME varchar(64) NOT NULL  ,
+  SOURCE_LABEL varchar(64) NOT NULL  ,
+  TARGET_PATH varchar(256) NOT NULL  ,
+  TARGET_LABEL varchar(64)   ,
+  IS_OVERWRITE boolean NOT NULL DEFAULT false ,
+  IS_QUICK_EXPORT boolean NOT NULL DEFAULT false ,
+  METADATA_FORMAT varchar(16) NOT NULL DEFAULT 'EMUELEC' ,
+  CREATETIME timestamp(0) NOT NULL  ,
+  PRIMARY KEY (ID))
+[main] [INFO] SQL - Records DDL:0, elapsed 8ms.
+[main] [INFO] com.github.xuse.querydsl.sql.ddl.CreateTableQuery - Create table (null export_preset) finished, 1 sqls executed.
+[main] [INFO] SQL - update QUERYDSL_AUTO_INIT_DATA_LOG
+set IS_DISABLED = 0, LAST_INIT_USER = ?, LAST_INIT_TIME = ?, LAST_INIT_RESULT = ? where QUERYDSL_AUTO_INIT_DATA_LOG.TABLE_NAME = ? and QUERYDSL_AUTO_INIT_DATA_LOG.IS_DISABLED = ?
+  1) tnt.lastInitUser-String: 
+  2) tnt.lastInitTime-Date: 2026-05-29 14:34:51
+  3) tnt.lastInitResult-String: Unlocked
+  4) tnt.tableName-String: lock#table_initialize
+  5) tnt.disabled-Integer: 2
+[main] [INFO] SQL - Records Updated:1, elapsed 1ms.
+[main] [INFO] com.github.xuse.querydsl.init.InitProcessor - [Init Processor] Database schema init process finished. 6 task processed.
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.metadata.ee.GameListService]:io.github.xuse.romking.metadata.ee.GameListService@6090f3ca
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.nointro.DatImportService]:io.github.xuse.romking.nointro.DatImportService@37a64f9d
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.nointro.DatManageService]:io.github.xuse.romking.nointro.DatManageService@25b865b5
+[main] [WARN] com.github.xuse.querydsl.repository.GenericRepository - Query Class not found io.github.xuse.romking.repo.obj.QExportPreset, will generate a dynanamic model.
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.ExportPresetRepository]:io.github.xuse.romking.repo.dal.ExportPresetRepository@f9b5552
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.KnownRomRepository]:io.github.xuse.romking.repo.dal.KnownRomRepository@6872f9c8
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.MediaFileRepository]:io.github.xuse.romking.repo.dal.MediaFileRepository@6d2d99fc
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.RomDirRepository]:io.github.xuse.romking.repo.dal.RomDirRepository@bdecc21
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.repo.dal.RomFileRepository]:io.github.xuse.romking.repo.dal.RomFileRepository@5e3a39cd
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.GlobalTaskService]:io.github.xuse.romking.service.GlobalTaskService@21f9277b
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomArchiveService]:io.github.xuse.romking.service.RomArchiveService@201aa8c1
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomDuplicateService]:io.github.xuse.romking.service.RomDuplicateService@5d58c727
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomExportService]:io.github.xuse.romking.service.RomExportService@52a36910
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomImportService]:io.github.xuse.romking.service.RomImportService@3a095ec0
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomMngService]:io.github.xuse.romking.service.RomMngService@4f20a5e0
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - [Adding Bean io.github.xuse.romking.service.RomVerifyService]:io.github.xuse.romking.service.RomVerifyService@54da32dc
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomArchiveService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatImportService.knownRomRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomMngService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomExportService.gameListService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.mediaRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.gameListService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomImportService.datManageService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomDuplicateService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomVerifyService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomVerifyService.romDirRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.RomVerifyService.romFileRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.service.GlobalTaskService.factory
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatManageService.taskService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatManageService.importService
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Inject field:class io.github.xuse.romking.nointro.DatManageService.knownRomRepo
+[main] [INFO] io.github.xuse.simple.context.ApplicationContext - Injecting @Resource field:class com.github.xuse.querydsl.repository.GenericRepository.factory
+[main] [INFO] SQL - insert into ROM_REPO (LABEL, PLATFORM, ROOTPATH, DESCRIPTION, TYPE, CREATETIME) values (?, ?, ?, ?, ?, ?)
+  1) rom.label-String: test-card
+  2) rom.platform-Platform: GBA
+  3) rom.rootpath-String: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\instance\gba
+  4) rom.description-String: 
+  5) rom.type-RepoType: INSTANCE
+  6) rom.createTime-Date: 2026-05-29 14:34:51
+[main] [INFO] SQL - Records Insert:1, elapsed 0ms.
+[main] [INFO] SQL - insert into ROM_REPO (LABEL, PLATFORM, ROOTPATH, DESCRIPTION, TYPE, CREATETIME) values (?, ?, ?, ?, ?, ?)
+  1) rom.label-String: test-card
+  2) rom.platform-Platform: NES
+  3) rom.rootpath-String: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\instance\nes
+  4) rom.description-String: 
+  5) rom.type-RepoType: INSTANCE
+  6) rom.createTime-Date: 2026-05-29 14:34:51
+[main] [INFO] SQL - Records Insert:1, elapsed 3ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.ROOTPATH = ?
+  1) rom.label-String: test-card
+  2) rom.rootpath-String: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\instance\gba
+[main] [INFO] SQL - Records Fetch:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ? and rom.FILE_PATH = ?
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game1.zip
+[main] [INFO] SQL - Records Fetch:0, elapsed 1ms.
+[main] [INFO] com.github.xuse.querydsl.sql.expression.CodecClassGenerator - The codec class io_github_xuse_romking_repo_obj_KnownRom_0vrnWp was load.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.MD5 = ?
+  1) kno.md5-String: 3970e3a0b9293cb1f62e96ee6c7f0ddf
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.CRC = ? and kno.ROMSIZE = ?
+  1) kno.crc-String: a3c975ab
+  2) kno.romSize-Long: 25
+[main] [INFO] SQL - Records Fetch:0, elapsed 1ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game1.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: Super Mario Advance
+  6) rom.region-Region: OTHER
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: Super Mario Advance.gba
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:51
+  12) rom.length-Long: 25
+  13) rom.crc-String: a3c975ab
+  14) rom.md5-String: 3970e3a0b9293cb1f62e96ee6c7f0ddf
+  15) rom.favorite-Integer: 0
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ? and rom.FILE_PATH = ?
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game2.gba
+[main] [INFO] SQL - Records Fetch:0, elapsed 1ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.MD5 = ?
+  1) kno.md5-String: 4a8bd28aa9726727ba77a71be1d1b330
+[main] [INFO] SQL - Records Fetch:0, elapsed 2ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.CRC = ? and kno.ROMSIZE = ?
+  1) kno.crc-String: 89e751f1
+  2) kno.romSize-Long: 37
+[main] [INFO] SQL - Records Fetch:0, elapsed 1ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game2.gba
+  3) rom.wrapType-WrapType: ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: game2
+  6) rom.region-Region: OTHER
+  7) rom.zippedFiles-Integer: 0
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: game2.gba
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:51
+  12) rom.length-Long: 37
+  13) rom.crc-String: 89e751f1
+  14) rom.md5-String: 4a8bd28aa9726727ba77a71be1d1b330
+  15) rom.favorite-Integer: 0
+[main] [INFO] SQL - Records Insert:1, elapsed 0ms.
+[main] [INFO] SQL - update ROM_REPO
+set LASTSCAN = ? where ROM_REPO.ID = ?
+  1) rom.lastScan-Date: 2026-05-29 14:34:51
+  2) rom.id-Integer: 1
+[main] [INFO] SQL - Records Updated:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.ROOTPATH = ?
+  1) rom.label-String: test-card
+  2) rom.rootpath-String: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\instance\nes
+[main] [INFO] SQL - Records Fetch:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ? and rom.FILE_PATH = ?
+  1) rom.dirId-Integer: 2
+  2) rom.filepath-String: game3 (J).nes
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.MD5 = ?
+  1) kno.md5-String: 2cf59b1c6f1fb9a51ad0cd0917183aa1
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.CRC = ? and kno.ROMSIZE = ?
+  1) kno.crc-String: 19bb75ec
+  2) kno.romSize-Long: 25
+[main] [INFO] SQL - Records Fetch:0, elapsed 1ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 2
+  2) rom.filepath-String: game3 (J).nes
+  3) rom.wrapType-WrapType: ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: game3 (J)
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 0
+  8) rom.platform-Platform: NES
+  9) rom.romName-String: game3 (J).nes
+  10) rom.romExt-String: nes
+  11) rom.romModified-Date: 2026-05-29 14:34:51
+  12) rom.length-Long: 25
+  13) rom.crc-String: 19bb75ec
+  14) rom.md5-String: 2cf59b1c6f1fb9a51ad0cd0917183aa1
+  15) rom.favorite-Integer: 0
+[main] [INFO] SQL - Records Insert:1, elapsed 0ms.
+[main] [INFO] SQL - update ROM_REPO
+set LASTSCAN = ? where ROM_REPO.ID = ?
+  1) rom.lastScan-Date: 2026-05-29 14:34:51
+  2) rom.id-Integer: 2
+[main] [INFO] SQL - Records Updated:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom
+[main] [INFO] SQL - Records Fetch:2, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom
+[main] [INFO] SQL - Records Fetch:3, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.ROOTPATH = ?
+  1) rom.label-String: test-card
+  2) rom.rootpath-String: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\instance\gba
+[main] [INFO] SQL - Records Fetch:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ? and rom.FILE_PATH = ?
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game1.zip
+[main] [INFO] SQL - Records Fetch:1, elapsed 0ms.
+[main] [INFO] SQL - delete from ROM_FILE where ROM_FILE.ID = ?
+  1) rom.id-Integer: 1
+[main] [INFO] SQL - Records Deleted:1, elapsed 0ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.MD5 = ?
+  1) kno.md5-String: 3970e3a0b9293cb1f62e96ee6c7f0ddf
+[main] [INFO] SQL - Records Fetch:0, elapsed 3ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.CRC = ? and kno.ROMSIZE = ?
+  1) kno.crc-String: a3c975ab
+  2) kno.romSize-Long: 25
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game1.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: Super Mario Advance
+  6) rom.region-Region: OTHER
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: Super Mario Advance.gba
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:51
+  12) rom.length-Long: 25
+  13) rom.crc-String: a3c975ab
+  14) rom.md5-String: 3970e3a0b9293cb1f62e96ee6c7f0ddf
+  15) rom.favorite-Integer: 0
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ? and rom.FILE_PATH = ?
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game2.gba
+[main] [INFO] SQL - Records Fetch:1, elapsed 4ms.
+[main] [INFO] SQL - delete from ROM_FILE where ROM_FILE.ID = ?
+  1) rom.id-Integer: 2
+[main] [INFO] SQL - Records Deleted:1, elapsed 2ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.MD5 = ?
+  1) kno.md5-String: 4a8bd28aa9726727ba77a71be1d1b330
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.CRC = ? and kno.ROMSIZE = ?
+  1) kno.crc-String: 89e751f1
+  2) kno.romSize-Long: 37
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 1
+  2) rom.filepath-String: game2.gba
+  3) rom.wrapType-WrapType: ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: game2
+  6) rom.region-Region: OTHER
+  7) rom.zippedFiles-Integer: 0
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: game2.gba
+  10) rom.romExt-String: gba
+  11) rom.romModified-Date: 2026-05-29 14:34:51
+  12) rom.length-Long: 37
+  13) rom.crc-String: 89e751f1
+  14) rom.md5-String: 4a8bd28aa9726727ba77a71be1d1b330
+  15) rom.favorite-Integer: 0
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - update ROM_REPO
+set LASTSCAN = ? where ROM_REPO.ID = ?
+  1) rom.lastScan-Date: 2026-05-29 14:34:51
+  2) rom.id-Integer: 1
+[main] [INFO] SQL - Records Updated:1, elapsed 3ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.ROOTPATH = ?
+  1) rom.label-String: test-card
+  2) rom.rootpath-String: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\instance\nes
+[main] [INFO] SQL - Records Fetch:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ? and rom.FILE_PATH = ?
+  1) rom.dirId-Integer: 2
+  2) rom.filepath-String: game3 (J).nes
+[main] [INFO] SQL - Records Fetch:1, elapsed 4ms.
+[main] [INFO] SQL - delete from ROM_FILE where ROM_FILE.ID = ?
+  1) rom.id-Integer: 3
+[main] [INFO] SQL - Records Deleted:1, elapsed 1ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.MD5 = ?
+  1) kno.md5-String: 2cf59b1c6f1fb9a51ad0cd0917183aa1
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - select kno.ID, kno.MD5, kno.CRC, kno.SHA1, kno.ROMSIZE, kno.GAMENAME, kno.ROMFILENAME, kno.PARENTNAME, kno.REGION, kno.PLATFORM, kno.SOURCE, kno.DATVERSION from KNOWN_ROM kno where kno.CRC = ? and kno.ROMSIZE = ?
+  1) kno.crc-String: 19bb75ec
+  2) kno.romSize-Long: 25
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 2
+  2) rom.filepath-String: game3 (J).nes
+  3) rom.wrapType-WrapType: ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: game3 (J)
+  6) rom.region-Region: JPN
+  7) rom.zippedFiles-Integer: 0
+  8) rom.platform-Platform: NES
+  9) rom.romName-String: game3 (J).nes
+  10) rom.romExt-String: nes
+  11) rom.romModified-Date: 2026-05-29 14:34:51
+  12) rom.length-Long: 25
+  13) rom.crc-String: 19bb75ec
+  14) rom.md5-String: 2cf59b1c6f1fb9a51ad0cd0917183aa1
+  15) rom.favorite-Integer: 0
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - update ROM_REPO
+set LASTSCAN = ? where ROM_REPO.ID = ?
+  1) rom.lastScan-Date: 2026-05-29 14:34:51
+  2) rom.id-Integer: 2
+[main] [INFO] SQL - Records Updated:1, elapsed 2ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom
+[main] [INFO] SQL - Records Fetch:3, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.PLATFORM = ?
+  1) rom.label-String: test-card
+  2) rom.platform-Platform: GBA
+[main] [INFO] SQL - Records Fetch:1, elapsed 0ms.
+[main] [INFO] SQL - insert into ROM_REPO (LABEL, PLATFORM, ROOTPATH, DESCRIPTION, TYPE, CREATETIME) values (?, ?, ?, ?, ?, ?)
+  1) rom.label-String: my-archive
+  2) rom.platform-Platform: GBA
+  3) rom.rootpath-String: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\archive\gba
+  4) rom.description-String: 测试归档仓库
+  5) rom.type-RepoType: ARCHIVE
+  6) rom.createTime-Date: 2026-05-29 14:34:51
+[main] [INFO] SQL - Records Insert:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.PLATFORM = ?
+  1) rom.label-String: my-archive
+  2) rom.platform-Platform: GBA
+[main] [INFO] SQL - Records Fetch:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.ID = ? limit ?
+  1) rom.id-Integer: 1
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.ID = ? limit ?
+  1) rom.id-Integer: 3
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:1, elapsed 5ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 1
+[main] [INFO] SQL - Records Fetch:2, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 3
+  2) rom.filepath-String: game1.zip
+  3) rom.wrapType-WrapType: ZIPPED_ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: Super Mario Advance
+  6) rom.region-Region: OTHER
+  7) rom.zippedFiles-Integer: 1
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: Super Mario Advance.gba
+  10) rom.romExt-String: gba
+  11) rom.romModified-Timestamp: 2026-05-29 14:34:51
+  12) rom.length-Long: 25
+  13) rom.crc-String: a3c975ab
+  14) rom.md5-String: 3970e3a0b9293cb1f62e96ee6c7f0ddf
+  15) rom.favorite-Integer: 0
+  16) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] SQL - insert into ROM_FILE (DIRID, FILE_PATH, WRAPTYPE, GAMEID, NAME, REGION, ZIPPED_FILES, PLATFORM, ROM_NAME, ROM_EXT, ROM_MODIFY, ROM_LEN, CRC, MD5, FAV, FILE_STATUS, CREATETIME) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp)
+  1) rom.dirId-Integer: 3
+  2) rom.filepath-String: game2.gba
+  3) rom.wrapType-WrapType: ROM
+  4) rom.gameid-String: 
+  5) rom.name-String: game2
+  6) rom.region-Region: OTHER
+  7) rom.zippedFiles-Integer: 0
+  8) rom.platform-Platform: GBA
+  9) rom.romName-String: game2.gba
+  10) rom.romExt-String: gba
+  11) rom.romModified-Timestamp: 2026-05-29 14:34:51
+  12) rom.length-Long: 37
+  13) rom.crc-String: 89e751f1
+  14) rom.md5-String: 4a8bd28aa9726727ba77a71be1d1b330
+  15) rom.favorite-Integer: 0
+  16) rom.fileStatus-FileStatus: OK
+[main] [INFO] SQL - Records Insert:1, elapsed 1ms.
+[main] [INFO] com.github.xuse.querydsl.sql.expression.CodecClassGenerator - The codec class io_github_xuse_romking_repo_obj_MediaFile_2J$4tn was load.
+[main] [INFO] SQL - select med.ID, med.DIRID, med.FILE_PATH, med.REF_COUNT, med.EXT, med.TYPE, med.MD5 from MEDIA_FILE med where med.DIRID = ?
+  1) med.dirId-Integer: 1
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:2, elapsed 7ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 1
+[main] [INFO] SQL - Records Fetch:2, elapsed 1ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.PLATFORM = ?
+  1) rom.label-String: test-card
+  2) rom.platform-Platform: GBA
+[main] [INFO] SQL - Records Fetch:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ? and rom.PLATFORM = ?
+  1) rom.label-String: my-archive
+  2) rom.platform-Platform: GBA
+[main] [INFO] SQL - Records Fetch:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.ID = ? limit ?
+  1) rom.id-Integer: 1
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.ID = ? limit ?
+  1) rom.id-Integer: 3
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 1
+[main] [INFO] SQL - Records Fetch:2, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:2, elapsed 0ms.
+[main] [INFO] SQL - select med.ID, med.DIRID, med.FILE_PATH, med.REF_COUNT, med.EXT, med.TYPE, med.MD5 from MEDIA_FILE med where med.DIRID = ?
+  1) med.dirId-Integer: 1
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:2, elapsed 1ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ?
+  1) rom.label-String: my-archive
+[main] [INFO] SQL - Records Fetch:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.ID = ? limit ?
+  1) rom.id-Integer: 3
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:2, elapsed 0ms.
+[main] [INFO] SQL - select med.ID, med.DIRID, med.FILE_PATH, med.REF_COUNT, med.EXT, med.TYPE, med.MD5 from MEDIA_FILE med where med.DIRID = ?
+  1) med.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] com.github.xuse.querydsl.sql.expression.CodecClassGenerator - The codec class io_github_xuse_romking_metadata_ee_Game_0uTO3F was load.
+[main] [ERROR] io.github.xuse.romking.tasks.ExportRomTask - 生成gamelist.xml失败: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\export\gba\gamelist.xml
+java.lang.NullPointerException: Cannot invoke "java.util.Map.entrySet()" because the return value of "io.github.xuse.simple.context.util.xml.XmlAttrContainer.getAttributes()" is null
+	at io.github.xuse.simple.context.util.xml.XMLUtils.appendBean(XMLUtils.java:2135)
+	at io.github.xuse.simple.context.util.xml.XMLUtils.putBean(XMLUtils.java:1509)
+	at io.github.xuse.romking.metadata.ee.GameListService.saveXml(GameListService.java:32)
+	at io.github.xuse.romking.tasks.ExportRomTask.generateGamelist(ExportRomTask.java:456)
+	at io.github.xuse.romking.tasks.ExportRomTask.exportDir(ExportRomTask.java:252)
+	at io.github.xuse.romking.tasks.ExportRomTask.doExport(ExportRomTask.java:156)
+	at io.github.xuse.romking.tasks.ExportRomTask.execute(ExportRomTask.java:106)
+	at io.github.xuse.romking.tasks.ScanArchiveExportIntegrationTest.testExport_copiesFilesAndGeneratesGamelist(ScanArchiveExportIntegrationTest.java:309)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.LABEL = ?
+  1) rom.label-String: my-archive
+[main] [INFO] SQL - Records Fetch:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:2, elapsed 0ms.
+[main] [INFO] SQL - update ROM_FILE
+set FILE_STATUS = ? where ROM_FILE.ID = ?
+  1) rom.fileStatus-FileStatus: MISSING
+  2) rom.id-Integer: 7
+[main] [INFO] SQL - Records Updated:1, elapsed 0ms.
+[main] [INFO] SQL - select rom.ID, rom.LABEL, rom.PLATFORM, rom.ROOTPATH, rom.DESCRIPTION, rom.TYPE, rom.CREATETIME, rom.LASTSCAN, rom.TAGS from ROM_REPO rom where rom.ID = ? limit ?
+  1) rom.id-Integer: 3
+  2) ?-Long: 1
+[main] [INFO] SQL - Records Iterated:1, elapsed 1ms.
+[main] [INFO] SQL - select rom.DIRID, rom.ID, rom.FILE_PATH, rom.WRAPTYPE, rom.GAMEID, rom.NAME, rom.DISPLAY_NAME, rom.TYPE, rom.REGION, rom.ZIPPED_FILES, rom.VERSION, rom.HACK, rom.PLATFORM, rom.ROM_NAME, rom.ROM_EXT, rom.ROM_MODIFY, rom.ROM_LEN, rom.CRC, rom.MD5, rom.MEDIAS, rom.FAV, rom.FILE_STATUS, rom.CREATETIME from ROM_FILE rom where rom.DIRID = ?
+  1) rom.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:2, elapsed 1ms.
+[main] [INFO] SQL - select med.ID, med.DIRID, med.FILE_PATH, med.REF_COUNT, med.EXT, med.TYPE, med.MD5 from MEDIA_FILE med where med.DIRID = ?
+  1) med.dirId-Integer: 3
+[main] [INFO] SQL - Records Fetch:0, elapsed 0ms.
+[main] [INFO] io.github.xuse.romking.tasks.ExportRomTask - 跳过 1 个异常状态的ROM文件（MISSING/CORRUPTED）
+[main] [ERROR] io.github.xuse.romking.tasks.ExportRomTask - 生成gamelist.xml失败: C:\Users\jiyi\AppData\Local\Temp\romking-test261752164652347447\export2\gba\gamelist.xml
+java.lang.NullPointerException: Cannot invoke "java.util.Map.entrySet()" because the return value of "io.github.xuse.simple.context.util.xml.XmlAttrContainer.getAttributes()" is null
+	at io.github.xuse.simple.context.util.xml.XMLUtils.appendBean(XMLUtils.java:2135)
+	at io.github.xuse.simple.context.util.xml.XMLUtils.putBean(XMLUtils.java:1509)
+	at io.github.xuse.romking.metadata.ee.GameListService.saveXml(GameListService.java:32)
+	at io.github.xuse.romking.tasks.ExportRomTask.generateGamelist(ExportRomTask.java:456)
+	at io.github.xuse.romking.tasks.ExportRomTask.exportDir(ExportRomTask.java:252)
+	at io.github.xuse.romking.tasks.ExportRomTask.doExport(ExportRomTask.java:156)
+	at io.github.xuse.romking.tasks.ExportRomTask.execute(ExportRomTask.java:106)
+	at io.github.xuse.romking.tasks.ScanArchiveExportIntegrationTest.testExport_skipsAbnormalStatusFiles(ScanArchiveExportIntegrationTest.java:370)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.819 s -- in io.github.xuse.romking.tasks.ScanArchiveExportIntegrationTest
+[INFO] Running io.github.xuse.romking.tasks.ScanRomTaskLogicTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.460 s -- in io.github.xuse.romking.tasks.ScanRomTaskLogicTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  40.685 s
+[INFO] Finished at: 2026-05-29T14:34:53+08:00
+[INFO] ------------------------------------------------------------------------

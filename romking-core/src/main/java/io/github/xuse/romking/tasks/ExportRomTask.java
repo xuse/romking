@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -25,6 +26,7 @@ import io.github.xuse.romking.metadata.ee.Gamelist;
 import io.github.xuse.romking.repo.dal.MediaFileRepository;
 import io.github.xuse.romking.repo.dal.RomDirRepository;
 import io.github.xuse.romking.repo.dal.RomFileRepository;
+import io.github.xuse.romking.repo.enums.FileStatus;
 import io.github.xuse.romking.repo.enums.WrapType;
 import io.github.xuse.romking.repo.obj.MediaFile;
 import io.github.xuse.romking.repo.obj.RomDir;
@@ -176,13 +178,23 @@ public class ExportRomTask implements Task {
 		List<MediaFile> mediaFiles = mediaRepo.find(q ->
 				q.where(MediaFileRepository.dirId.eq(sourceDir.getId())));
 
-		totalFiles += romFiles.size();
+		// 过滤掉异常状态的ROM（MISSING/CORRUPTED）
+		List<RomFile> validRomFiles = romFiles.stream()
+				.filter(r -> r.getFileStatus() == null || r.getFileStatus() == FileStatus.OK)
+				.collect(Collectors.toList());
+		int skippedAbnormal = romFiles.size() - validRomFiles.size();
+		if (skippedAbnormal > 0) {
+			log.info("跳过 {} 个异常状态的ROM文件（MISSING/CORRUPTED）", skippedAbnormal);
+			skippedFiles += skippedAbnormal;
+		}
+
+		totalFiles += validRomFiles.size();
 
 		// 导出ROM文件
 		Set<String> exportedRomPaths = new HashSet<>();
 		List<Game> gameEntries = new ArrayList<>();
 
-		for (RomFile romFile : romFiles) {
+		for (RomFile romFile : validRomFiles) {
 			String filepath = romFile.getFilepath();
 			exportedRomPaths.add(filepath);
 

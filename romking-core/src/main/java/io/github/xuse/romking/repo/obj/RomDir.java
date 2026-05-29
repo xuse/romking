@@ -45,7 +45,7 @@ public class RomDir {
 	 * 在设备上的目录
 	 */
 	@ViewColumn(caption="路径")
-	@ColumnSpec(size=64,nullable = false)
+	@ColumnSpec(size=256,nullable = false)
     private String rootpath;
 
 	/**

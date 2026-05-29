@@ -148,4 +148,31 @@ public class RomDuplicateService {
 				.where(t.id.in(romFileIds))
 				.execute();
 	}
+
+	/**
+	 * 批量清理完全重复的ROM记录。
+	 * 对每组同MD5的重复记录，保留ID最小的一条，删除其余。
+	 * 仅删除数据库记录，不删除物理文件。
+	 * 
+	 * @return 删除的记录总数
+	 */
+	public int batchCleanExactDuplicates() {
+		List<DuplicateGroup> groups = findExactDuplicates(0);
+		int totalDeleted = 0;
+
+		for (DuplicateGroup group : groups) {
+			List<RomFile> members = getGroupMembers(group.getGroupKey(), DuplicateType.SAME_MD5);
+			if (members.size() <= 1) continue;
+
+			// 按ID排序，保留最小ID的记录
+			members.sort((a, b) -> Integer.compare(a.getId(), b.getId()));
+			List<Integer> toDelete = new ArrayList<>();
+			for (int i = 1; i < members.size(); i++) {
+				toDelete.add(members.get(i).getId());
+			}
+			deleteRecords(toDelete);
+			totalDeleted += toDelete.size();
+		}
+		return totalDeleted;
+	}
 }
